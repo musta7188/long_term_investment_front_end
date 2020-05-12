@@ -1,6 +1,6 @@
 
   import styled from "styled-components";
-  
+  import React from 'react'
   
   export const StockPercentage = styled.div`
   justify-self: right;
@@ -31,3 +31,20 @@ export const MyPriceSign = styled.div`
   justify-self: right;
   font-size: 10px;
 `;
+
+export const StockPercentageRed = styled(StockPercentage)`
+color: red;
+`
+
+
+
+export const PercentageColor = (percentage) =>{
+
+return  percentage < 0 
+?
+ <StockPercentageRed>{percentage}{"%"} </StockPercentageRed>
+:
+<StockPercentage>{percentage}{"%"}</StockPercentage>
+
+
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { currentDate } from "../Shared/TodayDate";
-import {StockPercentage, StockSymbol, StockHeaderGridStyled, MyPriceSign, MyPriceValue} from './StockCardStyles'
+import {StockPercentage, StockSymbol, StockHeaderGridStyled, MyPriceSign, MyPriceValue, PercentageColor} from './StockCardStyles'
 
 export default function StockCard({ stock }) {
   const [currentPrice, setCurrentPrice] = useState(null);
@@ -44,9 +44,9 @@ export default function StockCard({ stock }) {
   return (
     <StockHeaderGridStyled>
       <StockSymbol>{stock.symbol}</StockSymbol>
-      <StockPercentage>
-        {currentPrice && calculatePercentageReturn(currentPrice, stock.price)}%{" "}
-      </StockPercentage>
+
+      {currentPrice && PercentageColor(calculatePercentageReturn(currentPrice, stock.price)) }
+
 
       <MyPriceSign>
         <div> Entry:</div>
