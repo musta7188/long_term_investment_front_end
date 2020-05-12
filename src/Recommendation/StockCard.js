@@ -45,7 +45,7 @@ export default function StockCard({ stock }) {
     <StockHeaderGridStyled>
       <StockSymbol>{stock.symbol}</StockSymbol>
 
-      {currentPrice && PercentageColor(calculatePercentageReturn(currentPrice, stock.price)) }
+      {currentPrice ? PercentageColor(calculatePercentageReturn(currentPrice, stock.price)) : <div>{"N/D"}</div> }
 
 
       <MyPriceSign>
@@ -55,7 +55,7 @@ export default function StockCard({ stock }) {
       <MyPriceSign>
         <div> Current:</div>
       </MyPriceSign>
-      <MyPriceValue>${currentPrice}</MyPriceValue>
+      <MyPriceValue>${currentPrice? currentPrice : "00"}</MyPriceValue>
     </StockHeaderGridStyled>
   );
 }
