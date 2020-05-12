@@ -1,5 +1,6 @@
 const initialState = {
-  recommendedStocks: []
+  recommendedStocks: [],
+  selectedStock: {}
 
 }
 
@@ -9,6 +10,13 @@ const ReducerApp = (state = initialState, action) => {
     return{
       ...state,
       recommendedStocks: action.payload.stocks
+    }
+  }
+  if(action.type === "SET_SELECTED_STOCK"){
+    return {
+      ...state,
+      selectedStock: action.payload.stock
+
     }
   }
 

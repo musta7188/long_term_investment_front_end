@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { currentDate } from "../Shared/TodayDate";
 import {StockPercentage, StockSymbol, StockHeaderGridStyled, MyPriceSign, MyPriceValue, PercentageColor} from './StockCardStyles'
+import { connect } from 'react-redux'
 
-export default function StockCard({ stock }) {
+
+function StockCard({ stock, getSelectedStock }) {
   const [currentPrice, setCurrentPrice] = useState(null);
 
   useEffect(() => {
@@ -39,10 +41,10 @@ export default function StockCard({ stock }) {
   };
 
 
-  // const PercentageColor({})
+
 
   return (
-    <StockHeaderGridStyled>
+    <StockHeaderGridStyled onClick={() => getSelectedStock(stock.symbol)}>
       <StockSymbol>{stock.symbol}</StockSymbol>
 
       {currentPrice ? PercentageColor(calculatePercentageReturn(currentPrice, stock.price)) : <div>{"N/D"}</div> }
@@ -59,3 +61,12 @@ export default function StockCard({ stock }) {
     </StockHeaderGridStyled>
   );
 }
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getSelectedStock: stock => dispatch({type: "SET_SELECTED_STOCK", payload: {stock}})
+  }
+}
+
+export default connect(null, mapDispatchToProps) (StockCard)

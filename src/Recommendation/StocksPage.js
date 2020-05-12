@@ -13,7 +13,7 @@ function StocksPage({ recommendedStocks }) {
 
   return (
     <StockGrid>
-      {recommendedStocks.map((stock) => (
+      {recommendedStocks.slice(0, 4).map((stock) => (
         <SelectableCard>
           <StockCard stock={stock} />
         </SelectableCard>
