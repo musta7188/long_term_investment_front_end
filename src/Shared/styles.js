@@ -2,7 +2,7 @@ const theme = 'white';
 
 export const lightTheme = theme === 'light';
 
-export const color = lightTheme ? 'white' : "#061a44";
+export const color = lightTheme ? 'white' : "#000080";
 export const color2 = lightTheme ? 'white' : "#010e2c";
 export const color3 = lightTheme ? '#09f010' : "#42ff3a";
 

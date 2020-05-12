@@ -12,6 +12,6 @@ export const SelectableCard= styled(Card)`
   ${greenBoxShadow}
 }
 color: white;
-padding: 10px;
+padding: 4px;
 ${lightBlueBackground}
 `
