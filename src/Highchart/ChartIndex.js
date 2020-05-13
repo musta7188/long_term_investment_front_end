@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from "react";
-
 import HighChartsConfig from "./HighchartsConfig";
 import ReactHighcharts from "react-highcharts";
 import styled from "styled-components";
 import ChartTheme from "./ChartTheme";
+
+
 ReactHighcharts.Highcharts.setOptions(ChartTheme);
 const ChartDiv = styled.div`
   padding: 10px;
   background: black;
 `;
 
-export default function () {
+ function  ChartIndex({selectedStock}) {
+   
+  const [sym, setSymbol] = useState(selectedStock)
   const [data, setData] = useState({});
 
   useEffect(() => {
     getChartData();
-  }, []);
+    setSymbol(selectedStock)
+
+  }, [selectedStock]);
 
   const getChartData = () => {
+    let symbol = sym
+    debugger
     fetch(
-      "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&region=US&symbol=FB&lang=en&range=1y",
+      `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&region=US&symbol=${symbol}&lang=en&range=ytd`,
       {
         method: "GET",
         headers: {
@@ -31,8 +38,7 @@ export default function () {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        // setData(data['chart']['result'][0])
-        // Yaxis console.log(data['chart']['result'][0]["indicators"]["quote"][0]["open"]
+
         let combineData = []
 
        let price =  data["chart"]["result"][0]["indicators"]["quote"][0]["open"]
@@ -57,3 +63,6 @@ export default function () {
     </ChartDiv>
   );
 }
+
+
+export default ChartIndex

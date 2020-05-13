@@ -29,7 +29,7 @@ function StockCard({ stock, getSelectedStock }) {
       .then((resp) => resp.json())
       .then((data) =>
         setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"])
-      );
+      ).catch(error => console.log(error))
   };
 
   const calculatePercentageReturn = (currentPrice, boughtPrice) => {

@@ -1,5 +1,5 @@
 export default function (data) {
-debugger
+
   return {
     
 
@@ -25,7 +25,7 @@ debugger
           label: {
             connectorAllowed: false
           },
-          pointStart: 2010
+          pointStart: 2020
         }
       },
 
