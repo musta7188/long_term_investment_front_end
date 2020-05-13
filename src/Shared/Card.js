@@ -15,3 +15,7 @@ color: white;
 padding: 4px;
 ${lightBlueBackground}
 `
+
+export const  SelectedStockCard = styled(SelectableCard)`
+
+`

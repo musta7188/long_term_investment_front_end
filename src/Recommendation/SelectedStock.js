@@ -1,33 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Chart from '../Highchart'
 
 const SelectedStockDiv = styled.div`
 display: grid;
 
 grid-template-columns: 1fr 2fr;
 grid-gap: 15px;
-`
-
-const ChartDiv = styled.div`
-
-background: black;
 
 `
+
+
 
 const InfoDiv = styled.div`
-
+height: 200px;
+padding: 10px;
 background: pink;
 
 `
 
 
 
+
+
 export default function SelectedStock() {
   return (
     <SelectedStockDiv>
- <InfoDiv>information about the stock</InfoDiv>
- <ChartDiv> Chart</ChartDiv>
+   <InfoDiv>info</InfoDiv>
+        <Chart/> 
+          
+
     </SelectedStockDiv>
   )
 }
