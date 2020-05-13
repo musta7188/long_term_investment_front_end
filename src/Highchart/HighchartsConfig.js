@@ -1,4 +1,5 @@
-export default function (historical) {
+export default function (data) {
+debugger
   return {
     
 
@@ -10,13 +11,9 @@ export default function (historical) {
           text: 'Price'
         }
       },
+      xAxis: {type: 'datetime'},
     
-      xAxis: {
-        accessibility: {
-          rangeDescription: 'Range: 2010 to 2017'
-        }
-      },
-    
+  
       legend: {
         layout: 'vertical',
         align: 'right',
@@ -31,11 +28,8 @@ export default function (historical) {
           pointStart: 2010
         }
       },
-    
-      series: [{
-        name: 'Installation',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-      }],
+
+      series: [data],
     
       responsive: {
         rules: [{
