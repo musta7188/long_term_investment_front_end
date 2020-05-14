@@ -3,7 +3,7 @@ import HighChartsConfig from "./HighchartsConfig";
 import ReactHighcharts from "react-highcharts";
 import styled from "styled-components";
 import ChartTheme from "./ChartTheme";
-
+import { connect } from 'react-redux'
 
 ReactHighcharts.Highcharts.setOptions(ChartTheme);
 const ChartDiv = styled.div`
@@ -11,20 +11,19 @@ const ChartDiv = styled.div`
   background: black;
 `;
 
- function  ChartIndex({selectedStock}) {
-   
-  const [sym, setSymbol] = useState(selectedStock)
+function ChartIndex({getChartDataFunction}) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    getChartData();
-    setSymbol(selectedStock)
+   
+    getChartDataFunction(getChartData)
+ 
+  }, []);
 
-  }, [selectedStock]);
 
-  const getChartData = () => {
-    let symbol = sym
-    debugger
+  const getChartData = (symbol) => {
+
+
     fetch(
       `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&region=US&symbol=${symbol}&lang=en&range=ytd`,
       {
@@ -38,21 +37,18 @@ const ChartDiv = styled.div`
     )
       .then((resp) => resp.json())
       .then((data) => {
+        let combineData = [];
 
-        let combineData = []
+        let price = data["chart"]["result"][0]["indicators"]["quote"][0]["open"];
+        let date = data["chart"]["result"][0]["timestamp"];
 
-       let price =  data["chart"]["result"][0]["indicators"]["quote"][0]["open"]
-       let date =  data["chart"]["result"][0]["timestamp"]
-
-       for(let i = 0; i < price.length ; i += 1){
-        combineData.push([date[i], price[i]])
-   
-      
-      }
+        for (let i = 0; i < price.length; i += 1) {
+          combineData.push([date[i], price[i]]);
+        }
 
         setData({
           name: "name",
-          data: combineData
+          data: combineData,
         });
       });
   };
@@ -64,5 +60,17 @@ const ChartDiv = styled.div`
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    selectedStock: state.selectedStock,
+  };
+};
 
-export default ChartIndex
+const mapDispatchToProps = dispatch => {
+  return {
+    getChartDataFunction: getChartData => dispatch({type: "SET_CHARTDATA", payload: {getChartData}})
+  }
+}
+
+
+export default  connect(mapStateToProps, mapDispatchToProps) (ChartIndex)

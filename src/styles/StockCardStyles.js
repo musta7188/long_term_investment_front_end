@@ -48,3 +48,11 @@ export const PercentageColor = (percentage) => {
     </StockPercentage>
   );
 };
+
+export const calculatePercentageReturn = (currentPrice, boughtPrice) => {
+  let minusReturn = currentPrice - boughtPrice;
+  let divideReturn = minusReturn / boughtPrice;
+  let finalResults = divideReturn * 100;
+
+  return finalResults.toString().slice(0, 5);
+};

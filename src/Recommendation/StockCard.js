@@ -1,54 +1,45 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { currentDate } from "../Shared/TodayDate";
-import {StockPercentage, StockSymbol, StockHeaderGridStyled, MyPriceSign, MyPriceValue, PercentageColor} from './StockCardStyles'
-import { connect } from 'react-redux'
+import {
+  calculatePercentageReturn,
+  StockSymbol,
+  StockHeaderGridStyled,
+  MyPriceSign,
+  MyPriceValue,
+  PercentageColor,
+} from "../styles/StockCardStyles";
+import { connect } from "react-redux";
+import { getPriceData } from "../APIs/Apis";
 
-
-function StockCard({ stock, getSelectedStock }) {
+function StockCard({ stock, getSelectedStock, getChartData }) {
   const [currentPrice, setCurrentPrice] = useState(null);
+  const [currentStockData, setCurrentStockData] = useState({})
 
   useEffect(() => {
-    getPriceData();
-    console.log(currentDate);
+    fetchStockAnalysis()
   }, []);
 
-  const getPriceData = () => {
-    const sym = stock.symbol;
-    fetch(
-      `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=${sym}`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-          "x-rapidapi-key":
-            "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf",
-        },
-      }
-    )
-      .then((resp) => resp.json())
-      .then((data) =>
-        setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"])
-      ).catch(error => console.log(error))
-  };
 
-  const calculatePercentageReturn = (currentPrice, boughtPrice) => {
-    let minusReturn = currentPrice - boughtPrice;
-    let divideReturn = minusReturn / boughtPrice;
-    let finalResults = divideReturn * 100;
-
-    return finalResults.toString().slice(0, 5);
-  };
-
-
-
+ const fetchStockAnalysis = () =>{
+  getPriceData(stock.symbol)
+  .then((data) =>
+   { 
+     setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"])
+     setCurrentStockData(data)
+    
+    }
+  )
+  .catch((error) => console.log(error));
+  }
 
   return (
-    <StockHeaderGridStyled onClick={() => getSelectedStock(stock.symbol)}>
+    <StockHeaderGridStyled onClick={() => getChartData(stock.symbol)}>
       <StockSymbol>{stock.symbol}</StockSymbol>
 
-      {currentPrice ? PercentageColor(calculatePercentageReturn(currentPrice, stock.price)) : <div>{"N/D"}</div> }
-
+      {currentPrice ? (
+        PercentageColor(calculatePercentageReturn(currentPrice, stock.price))
+      ) : (
+        <div>{"N/D"}</div>
+      )}
 
       <MyPriceSign>
         <div> Entry:</div>
@@ -57,16 +48,22 @@ function StockCard({ stock, getSelectedStock }) {
       <MyPriceSign>
         <div> Current:</div>
       </MyPriceSign>
-      <MyPriceValue>${currentPrice? currentPrice : "00"}</MyPriceValue>
+      <MyPriceValue>${currentPrice ? currentPrice : "00"}</MyPriceValue>
     </StockHeaderGridStyled>
   );
 }
 
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getSelectedStock: stock => dispatch({type: "SET_SELECTED_STOCK", payload: {stock}})
-  }
-}
+    getSelectedStock: (stock) =>
+      dispatch({ type: "SET_SELECTED_STOCK", payload: { stock } }),
+  };
+};
 
-export default connect(null, mapDispatchToProps) (StockCard)
+const mapStateToProps = (state) => {
+  return {
+    getChartData: state.getChartData,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StockCard);
