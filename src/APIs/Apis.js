@@ -19,6 +19,6 @@ export function getRecommendedStock() {
 }
 
 export function getPriceData(symbol) {
-  debugger;
+
   return fetch(`${ANALYSIS_STOCK}/${symbol}`,TOKEN).then(resp => resp.json())
 }

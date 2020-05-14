@@ -1,14 +1,18 @@
 import React from "react";
 import ChartIndex from "../Highchart/ChartIndex";
-import {SelectedStockDiv, InfoDiv} from '../styles/SelectedStockStyles'
-
+import {SelectedStockDiv} from '../styles/SelectedStockStyles'
+import SelectedStockInfo from '../SelectedStockInfo'
 
 function SelectedStock({ selectedStock }) {
   return (
+    <>
+        <ChartIndex  />
     <SelectedStockDiv>
-      <InfoDiv></InfoDiv>
-      <ChartIndex  />
+      <SelectedStockInfo/>
+     
     </SelectedStockDiv>
+ 
+     </>
   );
 }
 

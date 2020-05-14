@@ -8,10 +8,10 @@ import { connect } from 'react-redux'
 ReactHighcharts.Highcharts.setOptions(ChartTheme);
 const ChartDiv = styled.div`
   padding: 10px;
-  background: black;
+  background: #4169E1;
 `;
 
-function ChartIndex({getChartDataFunction}) {
+function ChartIndex({getChartDataFunction, selectedStock}) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -45,9 +45,9 @@ function ChartIndex({getChartDataFunction}) {
         for (let i = 0; i < price.length; i += 1) {
           combineData.push([date[i], price[i]]);
         }
-
+         
         setData({
-          name: "name",
+          name: data["chart"]['result'][0]['meta'].symbol,
           data: combineData,
         });
       });

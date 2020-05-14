@@ -4,14 +4,14 @@ export default function (data) {
     
 
       title: {
-        text: 'TITLE'
+        text: data.name
       },
       yAxis: {
         title: {
           text: 'Price'
         }
       },
-      xAxis: {type: 'datetime'},
+      xAxis: {type: 'date'},
     
   
       legend: {

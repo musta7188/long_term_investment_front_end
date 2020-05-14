@@ -10,7 +10,7 @@ import {
 import { connect } from "react-redux";
 import { getPriceData } from "../APIs/Apis";
 
-function StockCard({ stock, getSelectedStock, getChartData }) {
+function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails }) {
   const [currentPrice, setCurrentPrice] = useState(null);
   const [currentStockData, setCurrentStockData] = useState({})
 
@@ -24,15 +24,23 @@ function StockCard({ stock, getSelectedStock, getChartData }) {
   .then((data) =>
    { 
      setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"])
-     setCurrentStockData(data)
+     setCurrentStockData(data['summaryDetail'])
     
     }
   )
   .catch((error) => console.log(error));
   }
 
+
+
+  const submitSelectedStock = (sym) =>{
+    getChartData(sym)
+    getSelectedStock(sym)
+    getSummeryDetails(currentStockData)
+  }
+
   return (
-    <StockHeaderGridStyled onClick={() => getChartData(stock.symbol)}>
+    <StockHeaderGridStyled onClick={() => submitSelectedStock(stock.symbol)}>
       <StockSymbol>{stock.symbol}</StockSymbol>
 
       {currentPrice ? (
@@ -57,6 +65,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSelectedStock: (stock) =>
       dispatch({ type: "SET_SELECTED_STOCK", payload: { stock } }),
+      getSummeryDetails: data =>dispatch({type: 'SET_SUMMERY_DETAILS', payload: {data}}),
   };
 };
 

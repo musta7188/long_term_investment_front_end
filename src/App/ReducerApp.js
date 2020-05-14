@@ -2,6 +2,7 @@ const initialState = {
   recommendedStocks: [],
   selectedStock: "",
   getChartData: {},
+  summeryDetails: []
 };
 
 const ReducerApp = (state = initialState, action) => {
@@ -24,6 +25,13 @@ const ReducerApp = (state = initialState, action) => {
       ...state,
       getChartData: action.payload.getChartData,
     };
+  }
+  if(action.type === "SET_SUMMERY_DETAILS"){
+    return {
+      ...state,
+      summeryDetails: action.payload.data
+
+    }
   }
 
   return state;
