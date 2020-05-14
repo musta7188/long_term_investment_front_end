@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  subtleBoxShadow,
-  lightBlueBackground,
-  greenBoxShadow,
-  redBoxShadow,
-} from "./styles.js";
+import { lightBlueBackground, greenBoxShadow } from "./styles.js";
 
 export const Card = styled.div``;
 

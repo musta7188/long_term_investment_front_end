@@ -74,7 +74,7 @@ export const index = ({ summeryDetails }) => {
       </InfoDiv>
       </>
     ) : (
-      <Detail>ND</Detail>
+      <Detail>Select a chart to view the info</Detail>
     );
   };
 

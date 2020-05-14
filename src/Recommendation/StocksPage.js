@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import StockCard from "./StockCard";
-import { SelectableCard } from "../Shared/Card";
+import { SelectableCard } from "../Shared/CardStyle";
 import { StockGrid } from "../styles/StocksPageStyles";
 
 

@@ -5,7 +5,7 @@ import Recommendation from "../Recommendation";
 import AppLayout from "./AppLayout";
 import { connect } from "react-redux";
 import { getRecommendedStock } from "../APIs/Apis";
-
+import { Route } from 'react-router-dom';
 function App({ saveRecommendedStock }) {
   useEffect(() => {
     getRecommendedStock().then((data) => saveRecommendedStock(data));
@@ -14,10 +14,14 @@ function App({ saveRecommendedStock }) {
   return (
     <AppLayout className="App">
       <NavBar />
-      <Recommendation />
+      <Route exact path={'/Recommendation'} render={props =>   <Recommendation {...props} /> }/>
+
     </AppLayout>
   );
 }
+
+
+
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -5,6 +5,7 @@ export const Bar = styled.div`
   grid-template-columns: 180px auto 100px 100px;
   background-color: black;
   color: white;
+ 
 `;
 
 export const Logo = styled.div`
@@ -13,6 +14,14 @@ export const Logo = styled.div`
 
 export const ControlButtonElem = styled.div`
   padding: 20px;
-  cursor: pointer;
+ color: white;
   text-shadow: 0px 0px 60px #03ff03;
+  &:hover {
+    color: green; 
+    cursor: pointer;
+  }
 `;
+
+export const ActiveButton = styled(ControlButtonElem)`
+color: green;
+`
