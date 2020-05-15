@@ -2,7 +2,8 @@ const initialState = {
   recommendedStocks: [],
   selectedStock: "",
   getChartData: {},
-  summeryDetails: []
+  summeryDetails: [],
+  currentUser: {}
 };
 
 const ReducerApp = (state = initialState, action) => {
@@ -31,6 +32,12 @@ const ReducerApp = (state = initialState, action) => {
       ...state,
       summeryDetails: action.payload.data
 
+    }
+  }
+  if (action.type === "SET_USER"){
+    return {
+      ...state,
+      currentUser: action.payload.user
     }
   }
 
