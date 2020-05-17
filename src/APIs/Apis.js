@@ -5,6 +5,7 @@ const RECOMMENDED_STOCK = `${BASE_URL}/recommended_stocks`;
 const signInURL = `${BASE_URL}sign-in`
 const validateURL = `${BASE_URL}validate`
 const portfoliosURL = `${BASE_URL}portfolios`
+const signUpURL = `${BASE_URL}users`
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
 
 const post = (url, body) => {
@@ -42,11 +43,33 @@ export const signInUser = (body) => {
 
 
 
+export const signUpUser = (body) => {
+  debugger
+  return post(signUpURL, body).then(resp =>resp.json())
+}
+
+
+
+
+
+
+
+
 export const validate = (token) => {
 
  return get(validateURL, token).then(resp => resp.json())
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

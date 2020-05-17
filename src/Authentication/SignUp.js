@@ -13,10 +13,13 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {useStyles} from './AuthenticationStyles/SignInStyles'
+import {signUpUser} from '../APIs/Apis'
+import { connect } from "react-redux";
 
 
+function SignUp(props) {
 
-export default function SignUp() {
+  const {setUser} = props
   const classes = useStyles();
 
   const [name, setName] = useState("");
@@ -26,10 +29,20 @@ export default function SignUp() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(name);
-    console.log(passwordConfirmation);
+    const body = {
+      name: name,
+      email: email,
+      password_digest: password,
+      
+
+    }
+    signUpUser(body).then(data => {
+      setUser(data.user);
+      localStorage.token = data.token;
+      props.history.push('/Recommendation')
+    })
+    .catch(error => console.log(error))
+   
   };
 
 
@@ -43,7 +56,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <form className={classes.form} noValidate onSubmit={(e) => handelSubmit(e)} >
           <TextField
@@ -129,3 +142,11 @@ export default function SignUp() {
     </Grid>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (user) => dispatch({ type: "SET_USER", payload: { user } }),
+  };
+};
+
+export default connect(null, mapDispatchToProps) (SignUp)

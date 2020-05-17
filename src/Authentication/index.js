@@ -9,9 +9,6 @@ const Body =  styled.div`
 background: red;
 
 `
-
-
-
   return (
 
       <div>
