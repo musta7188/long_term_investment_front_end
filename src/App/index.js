@@ -8,13 +8,14 @@ import {getRecommendedStock}  from "../APIs/Apis";
 import { Route } from "react-router-dom";
 import Authentication from "../Authentication";
 import {validate} from '../APIs/Apis'
+import PortfoliosPage from '../Portfolios/PortfoliosPage'
 function App({ saveRecommendedStock, setUser,currentUser }) {
-  const [user, setCurrentUser] = useState(null);
 
   useEffect(() => {
+   
+    checkUserLogin()
 
-  setCurrentUser(currentUser)
-   checkUserLogin()
+
 
     getRecommendedStock().then((data) => saveRecommendedStock(data));
   }, [currentUser]);
@@ -27,24 +28,32 @@ function App({ saveRecommendedStock, setUser,currentUser }) {
         localStorage.token = data.token
       })
       
-    }
+    } 
   }
 
   return (
-    <>
-      {currentUser ? (
+   <>
+      {localStorage.token ? (
         <AppLayout className="App">
           <NavBar />
           <Route
             exact
             path={"/Recommendation"}
-            render={(props) => <Recommendation {...props} />}
+            render={(props) => <Recommendation {...props} />
+          }
           />
-        </AppLayout>
+          <Route
+          exact
+          path={"/Portfolio"}
+          render={(props) => <PortfoliosPage {...props} />
+        
+        }
+        />
+          </AppLayout>
       ) : (
-        <Route path={"/"} render={(props) => <Authentication {...props} />} />
+        <Route render={(props) => <Authentication {...props} />} />
       )}
-    </>
+     </>
   );
 }
 

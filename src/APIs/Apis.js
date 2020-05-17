@@ -2,8 +2,9 @@ import React from "react";
 
 const BASE_URL = "http://localhost:3001/";
 const RECOMMENDED_STOCK = `${BASE_URL}/recommended_stocks`;
-const signInURL = `${BASE_URL}/sign-in`
+const signInURL = `${BASE_URL}sign-in`
 const validateURL = `${BASE_URL}validate`
+const portfoliosURL = `${BASE_URL}portfolios`
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
 
 const post = (url, body) => {
@@ -30,9 +31,10 @@ const get = (url, token) => {
 }
 
 
+export const getPortfolios = (token) =>{
 
-
-
+ return get(portfoliosURL, token).then(resp => resp.json())
+}
 
 export const signInUser = (body) => {
  return post(signInURL, body).then(resp => resp.json())

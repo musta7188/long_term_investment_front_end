@@ -3,7 +3,7 @@ const initialState = {
   selectedStock: "",
   getChartData: {},
   summeryDetails: [],
-  currentUser: {}
+  currentUser: null
 };
 
 const ReducerApp = (state = initialState, action) => {

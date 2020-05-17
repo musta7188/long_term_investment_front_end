@@ -15,7 +15,10 @@ import { useStyles } from "./AuthenticationStyles/SignInStyles";
 import { connect } from "react-redux";
 import { signInUser } from "../APIs/Apis";
 
-function SignIn({ setUser }) {
+function SignIn(props) {
+
+  const {setUser} = props
+
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -30,9 +33,9 @@ function SignIn({ setUser }) {
     };
 
     signInUser(body).then((data) => {
-      debugger
       setUser(data.user);
       localStorage.token = data.token;
+      props.history.push('/Recommendation')
     });
   };
 
