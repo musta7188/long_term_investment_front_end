@@ -6,7 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./App/ReducerApp";
-import {BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -15,9 +16,9 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <Route path={"/"} render={(props) => <App {...props} />} />
+      </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

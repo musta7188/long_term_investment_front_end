@@ -9,8 +9,9 @@ import { Route } from "react-router-dom";
 import Authentication from "../Authentication";
 import {validate} from '../APIs/Apis'
 import PortfoliosIndex from '../Portfolios/PortfoliosIndex'
-function App({ saveRecommendedStock, setUser,currentUser }) {
+function App( props) {
 
+  const { saveRecommendedStock, setUser,currentUser} = props
   useEffect(() => {
    
     checkUserLogin()
@@ -26,7 +27,9 @@ function App({ saveRecommendedStock, setUser,currentUser }) {
         localStorage.token = data.token
       })
       
-    } 
+    } if (!currentUser){
+  
+    }
   }
 
   return (

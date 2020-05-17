@@ -47,6 +47,13 @@ const ReducerApp = (state = initialState, action) => {
       userPortfolios: action.payload.portfolios
     }
   }
+  if (action.type === "ADD_PORTFOLIO"){
+    return {
+      ...state,
+      userPortfolios: state.userPortfolios? [...state.userPortfolios, action.payload.portfolio] :
+      [action.payload.portfolio]
+    }
+  }
   return state;
 };
 

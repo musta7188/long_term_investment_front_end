@@ -32,14 +32,17 @@ function SignUp(props) {
     const body = {
       name: name,
       email: email,
-      password_digest: password,
+      password: password,
+      password_confirmation: passwordConfirmation,
       
 
     }
     signUpUser(body).then(data => {
+        debugger
       setUser(data.user);
+
       localStorage.token = data.token;
-      props.history.push('/Recommendation')
+      props.history.push('/')
     })
     .catch(error => console.log(error))
    

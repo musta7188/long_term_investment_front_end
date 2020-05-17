@@ -8,6 +8,7 @@ import {PortfoliosGrid, PortfoliosCardStyle} from '../styles/PortfolioPageStyles
  function PortfoliosPage(props) {
 
   const {userPortfolios} = props
+
   return (
     <PortfoliosGrid>
       {userPortfolios && userPortfolios.map(port => <PortfoliosCardStyle><PortfoliosCard portfolio={port}/></PortfoliosCardStyle> )}

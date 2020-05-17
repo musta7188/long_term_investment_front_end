@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getPortfolios } from "../APIs/Apis";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import PortfoliosPage from "./PortfoliosPage";
 import CreateModalButton from "./CreateModalButton";
@@ -15,7 +14,13 @@ function PortfoliosIndex(props) {
 
   const fetchPortfolios = () => {
     if (localStorage.token) {
-      getPortfolios(localStorage.token).then((data) => setPortfolios(data));
+
+      getPortfolios(localStorage.token).then((data) => {
+          debugger
+          if(data.portfolios && data.portfolios.length){
+             setPortfolios(data.portfolios)
+          }
+       });
     }
   };
 
@@ -33,7 +38,7 @@ function PortfoliosIndex(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     setPortfolios: (portfolios) =>
-      dispatch({ type: "SET_PORTFOLIOS", payload: { portfolios } }),
+      dispatch({ type: "SET_PORTFOLIOS", payload: {portfolios: portfolios } }),
   };
 };
 

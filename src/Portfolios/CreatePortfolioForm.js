@@ -1,16 +1,14 @@
 import React, {useState, useEffect}from 'react';
-
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
-
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import {createPortfolio} from '../APIs/Apis'
+import { connect } from 'react-redux';
 
 
+function CreatePortfolioForm(props) {
 
-
-
-export default function CreatePortfolioForm() {
+  const {addPortfolio} = props
 
 const [portfolioName, setPortfolioName] = useState("")
 
@@ -21,7 +19,10 @@ const handleSubmit = (e) => {
   const body = {
     name: portfolioName
   }
-  createPortfolio(body, localStorage.token).then(data => console.log(data)).catch(error => console.log(error))
+  createPortfolio(body, localStorage.token)
+  .then(data => {
+     addPortfolio(data.portfolio)})
+  .catch(error => console.log(error))
 }
 
 
@@ -46,3 +47,11 @@ const handleSubmit = (e) => {
     </form>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPortfolio: (portfolio) => dispatch({ type: "ADD_PORTFOLIO", payload: { portfolio } }),
+  };
+};
+
+export default connect(null, mapDispatchToProps) (CreatePortfolioForm);

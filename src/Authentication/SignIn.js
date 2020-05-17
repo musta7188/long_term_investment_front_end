@@ -32,11 +32,19 @@ function SignIn(props) {
       password: password,
     };
 
-    signInUser(body).then((data) => {
-      setUser(data.user);
-      localStorage.token = data.token;
-      props.history.push('/Recommendation')
-    });
+    signInUser(body).then((data) => 
+    
+      {
+        if(data.user){
+
+                setUser(data.user);
+        localStorage.token = data.token
+        props.history.push("/Recommendation")
+        }else{
+          alert("error")
+        }
+  
+    }).catch(error => console.log(error))
   };
 
   return (
