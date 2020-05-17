@@ -8,14 +8,12 @@ import {getRecommendedStock}  from "../APIs/Apis";
 import { Route } from "react-router-dom";
 import Authentication from "../Authentication";
 import {validate} from '../APIs/Apis'
-import PortfoliosPage from '../Portfolios/PortfoliosPage'
+import PortfoliosIndex from '../Portfolios/PortfoliosIndex'
 function App({ saveRecommendedStock, setUser,currentUser }) {
 
   useEffect(() => {
    
     checkUserLogin()
-
-
 
     getRecommendedStock().then((data) => saveRecommendedStock(data));
   }, [currentUser]);
@@ -45,7 +43,7 @@ function App({ saveRecommendedStock, setUser,currentUser }) {
           <Route
           exact
           path={"/Portfolio"}
-          render={(props) => <PortfoliosPage {...props} />
+          render={(props) => <PortfoliosIndex{...props} />
         
         }
         />

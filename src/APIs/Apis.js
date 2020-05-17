@@ -8,13 +8,14 @@ const portfoliosURL = `${BASE_URL}portfolios`
 const signUpURL = `${BASE_URL}users`
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
 
-const post = (url, body) => {
+const post = (url, body, token) => {
 
   const ObjConfiguration = {
     method: 'POST',
     headers: {
       'Content-Type': "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": token
     },
     body: JSON.stringify(body)
   }
@@ -29,6 +30,11 @@ const get = (url, token) => {
     }
   }
   return fetch(url, ObjConfiguration)
+}
+
+export const createPortfolio = (body, token) => {
+  return post(portfoliosURL, body, token).then(resp => resp.json())
+
 }
 
 

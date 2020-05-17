@@ -1,24 +1,24 @@
-import React, {useEffect, useState} from 'react'
-import {getPortfolios} from '../APIs/Apis'
+import React from 'react'
+
+import { connect } from 'react-redux'
+import PortfoliosCard from './PortfoliosCard'
+import {PortfoliosGrid, PortfoliosCardStyle} from '../styles/PortfolioPageStyles'
 
 
-export default function PortfoliosPage() {
+ function PortfoliosPage(props) {
 
-useEffect(() => {
-
-  fetchPortfolios()
-
-})
-
-const fetchPortfolios = () =>{
-  if(localStorage.token){
-    getPortfolios(localStorage.token).then(data => console.log(data["portfolios"]))
-  }
-}
-
+  const {userPortfolios} = props
   return (
-    <div>
-      PortfoliosPage
-    </div>
+    <PortfoliosGrid>
+      {userPortfolios && userPortfolios.map(port => <PortfoliosCardStyle><PortfoliosCard portfolio={port}/></PortfoliosCardStyle> )}
+    </PortfoliosGrid>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    userPortfolios: state.userPortfolios,
+  };
+};
+
+export default connect(mapStateToProps) (PortfoliosPage)

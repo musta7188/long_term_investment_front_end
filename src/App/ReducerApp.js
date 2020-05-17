@@ -3,7 +3,8 @@ const initialState = {
   selectedStock: "",
   getChartData: {},
   summeryDetails: [],
-  currentUser: null
+  currentUser: null,
+  userPortfolios: null
 };
 
 const ReducerApp = (state = initialState, action) => {
@@ -40,7 +41,12 @@ const ReducerApp = (state = initialState, action) => {
       currentUser: action.payload.user
     }
   }
-
+  if(action.type === "SET_PORTFOLIOS"){
+    return {
+      ...state,
+      userPortfolios: action.payload.portfolios
+    }
+  }
   return state;
 };
 
