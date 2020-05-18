@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchInput from './SearchInput'
-
+import SearchedStockContainer from './SearchedStockContainer'
 export default function SearchIndex() {
 
 
@@ -9,7 +9,7 @@ export default function SearchIndex() {
   return (
     <div>
       <SearchInput/>
-      <h1>Search input </h1>
+       <SearchedStockContainer/>
     </div>
   )
 }
