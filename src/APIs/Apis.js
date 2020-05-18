@@ -7,6 +7,7 @@ const validateURL = `${BASE_URL}validate`
 const portfoliosURL = `${BASE_URL}user-portfolios`
 const createPortfolioURL =  `${BASE_URL}portfolios`
 const signUpURL = `${BASE_URL}users`
+
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
 
 const post = (url, body, token) => {
@@ -32,6 +33,13 @@ const get = (url, token) => {
   }
   return fetch(url, ObjConfiguration)
 }
+
+
+export const getPortfolioDetails = (id) => {
+return fetch(`${BASE_URL}portfolios/${id}`).then(resp => resp.json())
+
+}
+
 
 export const createPortfolio = (body, token) => {
   return post(createPortfolioURL, body, token).then(resp => resp.json())

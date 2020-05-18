@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import PortfoliosPage from "./PortfoliosPage";
 import CreateModalButton from "./CreateModalButton";
 import { CreateDiv } from "../styles/PortfolioPageStyles";
+import PortfolioDetails from "./PortfolioDetails";
+import { Route } from "react-router-dom";
 
 function PortfoliosIndex(props) {
+
   const { setPortfolios } = props;
 
   useEffect(() => {
@@ -14,23 +17,34 @@ function PortfoliosIndex(props) {
 
   const fetchPortfolios = () => {
     if (localStorage.token) {
-
       getPortfolios(localStorage.token).then((data) => {
-          debugger
-          if(data.portfolios && data.portfolios.length){
-             setPortfolios(data.portfolios)
-          }
-       });
+        if (data.portfolios && data.portfolios.length) {
+          setPortfolios(data.portfolios);
+        }
+      });
     }
   };
 
   return (
     <div>
-      <CreateDiv>
-        <CreateModalButton />
-      </CreateDiv>
+      <Route
+        exact
+        path={"/Portfolio"}
+        render={(props) => (
+          <>
+            <CreateDiv>
+              <CreateModalButton />
+            </CreateDiv>
+            <PortfoliosPage {...props} />
+          </>
+        )}
+      />
 
-      <PortfoliosPage />
+      <Route
+        exact
+        path={`/Portfolio/:id`}
+        render={(props) => <PortfolioDetails {...props} />}
+      />
     </div>
   );
 }
@@ -38,7 +52,7 @@ function PortfoliosIndex(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     setPortfolios: (portfolios) =>
-      dispatch({ type: "SET_PORTFOLIOS", payload: {portfolios: portfolios } }),
+      dispatch({ type: "SET_PORTFOLIOS", payload: { portfolios: portfolios } }),
   };
 };
 

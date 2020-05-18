@@ -44,11 +44,8 @@ function App( props) {
           }
           />
           <Route
-          exact
-          path={"/Portfolio"}
-          render={(props) => <PortfoliosIndex{...props} />
-        
-        }
+
+          render={(props) => <PortfoliosIndex {...props} />}
         />
           </AppLayout>
       ) : (

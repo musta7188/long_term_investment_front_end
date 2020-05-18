@@ -15,12 +15,12 @@ import { connect } from "react-redux";
   ///take two argument the value to display and active value, if the value of active 
   function Button({ value, currentSelected }) {
     return currentSelected === value ? (
-      <Link to={value}>
+      <Link to={`/${value}`}>
         {" "}
         <ActiveButton>{value}</ActiveButton>
       </Link>
     ) : (
-      <Link to={value} color="white" onClick={() => setCurrentSelected(value)}>
+      <Link to={`/${value}`} color="white" onClick={() => setCurrentSelected(value)}>
         {" "}
         <ControlButtonElem>{value}</ControlButtonElem>
       </Link>

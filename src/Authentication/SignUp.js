@@ -38,11 +38,11 @@ function SignUp(props) {
 
     }
     signUpUser(body).then(data => {
-        debugger
-      setUser(data.user);
 
+      setUser(data.user);
+      debugger
       localStorage.token = data.token;
-      props.history.push('/')
+      props.history.push('/Recommendation')
     })
     .catch(error => console.log(error))
    
