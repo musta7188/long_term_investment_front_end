@@ -9,7 +9,7 @@ import {
 } from "../styles/StockDetailsStyles";
 
 export default function StockDetails(props) {
-  const { symbol, open, units, DeleteStock, id } = props;
+  const { symbol, open, units, DeleteSelectedStock, id } = props;
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function StockDetails(props) {
         <PriceDiv>$ {units * open}</PriceDiv>
         <ButtonDetails>Chart</ButtonDetails>
         <ButtonDetails>News</ButtonDetails>
-        <DeleteButton onClick={() => DeleteStock(id)}>Delete</DeleteButton>
+        <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
         <ButtonDetails>Edit</ButtonDetails>
       </StocksGrid>
     </>

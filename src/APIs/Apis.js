@@ -6,6 +6,7 @@ const signInURL = `${BASE_URL}sign-in`
 const validateURL = `${BASE_URL}validate`
 const portfoliosURL = `${BASE_URL}user-portfolios`
 const createPortfolioURL =  `${BASE_URL}portfolios`
+
 const signUpURL = `${BASE_URL}users`
 
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
@@ -65,16 +66,28 @@ export const signUpUser = (body) => {
 
 
 
-
-
-
-
-
 export const validate = (token) => {
 
  return get(validateURL, token).then(resp => resp.json())
 
 }
+
+
+export const  DeleteStock  = (id) => {
+
+  const confObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+
+ return fetch(`http://localhost:3001/stocks/${id}`, confObj)
+  .then((resp) => resp.json())
+
+}
+
 
 
 
