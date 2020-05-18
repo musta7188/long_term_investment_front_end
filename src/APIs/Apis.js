@@ -11,6 +11,15 @@ const signUpURL = `${BASE_URL}users`
 
 const ANALYSIS_STOCK =  `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`
 
+const ALPHA_VANTAGE_TOKEN = {
+  "method": "GET",
+  "headers": {
+    "x-rapidapi-host": "alpha-vantage.p.rapidapi.com",
+    "x-rapidapi-key": "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf"
+  }
+}
+
+
 const post = (url, body, token) => {
 
   const ObjConfiguration = {
@@ -89,10 +98,6 @@ export const  DeleteStock  = (id) => {
 }
 
 
-
-
-
-
 const TOKEN_API_YAHOO_FINANCE =   {
 
   method: "GET",
@@ -115,3 +120,9 @@ export function getPriceData(symbol) {
 }
 
 
+export const fetchSearchedInput = (value) =>{
+
+ return fetch(`https://alpha-vantage.p.rapidapi.com/query?datatype=json&keywords=${value}&function=SYMBOL_SEARCH`, ALPHA_VANTAGE_TOKEN )
+  .then(resp => resp.json())
+
+}

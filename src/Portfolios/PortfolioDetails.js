@@ -32,7 +32,8 @@ export default function PortfolioDetails(props) {
     <div>
       <h1> Portfolio: {portfolio.name}</h1>
       <StockGrid>
-        {stocks &&
+        {stocks.length ?
+        
           stocks.map((stock) => (
             <StockDetails
               units={stock.units}
@@ -40,8 +41,8 @@ export default function PortfolioDetails(props) {
               open={stock.open}
               id={stock.id}
               DeleteSelectedStock={DeleteSelectedStock}
-            />
-          ))}
+            /> 
+          )) : <p>Your Portfolio is empty</p> }
       </StockGrid>
     </div>
   );

@@ -4,7 +4,8 @@ const initialState = {
   getChartData: {},
   summeryDetails: [],
   currentUser: null,
-  userPortfolios: null
+  userPortfolios: null,
+  searchedStocks:[]
 };
 
 const ReducerApp = (state = initialState, action) => {
@@ -52,6 +53,12 @@ const ReducerApp = (state = initialState, action) => {
       ...state,
       userPortfolios: state.userPortfolios? [...state.userPortfolios, action.payload.portfolio] :
       [action.payload.portfolio]
+    }
+  }
+  if(action.type === "SEARCHED_STOCK"){
+    return{
+      ...state,
+      searchedStocks: action.payload.stocks
     }
   }
   return state;
