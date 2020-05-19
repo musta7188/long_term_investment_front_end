@@ -40,7 +40,7 @@ export default function SearchedStockCard(props) {
       <InfoDiv>{marketClose}</InfoDiv>
       <strong><TagDiv>Region:</TagDiv></strong>
       <InfoDiv>{region}</InfoDiv>
-      <ModalAddStock symbol={symbol}/>
+      <ModalAddStock name={name} symbol={symbol}/>
     </SearchStockCardStyled>
   )
 }

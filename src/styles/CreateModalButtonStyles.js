@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   paper: {
     color: "black",
     position: 'absolute',
-    width: 400,
+    width: 300,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],

@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import AddStockForm from './AddStockForm'
 
 
-export default function ModalAddStock({symbol}) {
+export default function ModalAddStock({symbol, name}) {
   const classes = useStyles();
 
   const [modalStyle] = React.useState(getModalStyle);
@@ -21,7 +21,7 @@ export default function ModalAddStock({symbol}) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-    <AddStockForm symbol={symbol} />
+    <AddStockForm name={name} symbol={symbol} />
    
     </div>
   );
