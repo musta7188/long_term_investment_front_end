@@ -6,7 +6,7 @@ import CreateModalButton from "./CreateModalButton";
 import { CreateDiv } from "../styles/PortfolioPageStyles";
 import PortfolioDetails from "./PortfolioDetails";
 import { Route } from "react-router-dom";
-
+import StockChartIndex from '../StockChart/StockChartIndex'
 function PortfoliosIndex(props) {
 
   const { setPortfolios } = props;
@@ -44,6 +44,12 @@ function PortfoliosIndex(props) {
         exact
         path={`/Portfolio/:id`}
         render={(props) => <PortfolioDetails {...props} />}
+      />
+      {/* route for the stock_chart  */}
+      <Route
+        exact
+        path={`/chart/:symbol`}
+        render={(props) => <StockChartIndex {...props} />}
       />
     </div>
   );
