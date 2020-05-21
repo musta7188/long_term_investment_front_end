@@ -40,7 +40,7 @@ function SignUp(props) {
     signUpUser(body).then(data => {
 
       setUser(data.user);
-      debugger
+
       localStorage.token = data.token;
       props.history.push('/Recommendation')
     })

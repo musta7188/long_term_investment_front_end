@@ -35,7 +35,7 @@ function App(props) {
         <AppLayout className="App">
           <NavBar />
           <Route
-            exact
+         
             path={"/Recommendation"}
             render={(props) => <Recommendation {...props} />}
           />

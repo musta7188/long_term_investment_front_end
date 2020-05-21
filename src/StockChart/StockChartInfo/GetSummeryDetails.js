@@ -15,7 +15,7 @@ export default function GetSummeryDetails({symbol}) {
   .then((data) =>
    { 
      setCurrentStockData(data['summaryDetail'])
-    debugger
+
     }
   )
   .catch((error) => console.log(error));

@@ -36,7 +36,7 @@ export const StockPercentageRed = styled(StockPercentage)`
 `;
 
 export const PercentageColor = (percentage) => {
-  debugger
+
   return percentage < 0 ? (
     <StockPercentageRed>
       {percentage}

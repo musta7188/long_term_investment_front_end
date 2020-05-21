@@ -25,7 +25,7 @@ export default function StockDetails(props) {
         <InfoDiv>Value:</InfoDiv>
         <PriceDiv>$ {units * open}</PriceDiv>
        <Link to={`/chart/${symbol}/${open}`}><ButtonDetails>Chart</ButtonDetails></Link> 
-        <ButtonDetails>News</ButtonDetails>
+      <Link to={`/news/${symbol}`}><ButtonDetails>News</ButtonDetails></Link>  
         <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
         <ButtonDetails>Edit</ButtonDetails>
       </StocksGrid>

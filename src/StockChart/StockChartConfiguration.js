@@ -1,5 +1,5 @@
 export default function (ohlc, volume) {
-  debugger
+
   return {
     yAxis: [
       {

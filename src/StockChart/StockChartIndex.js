@@ -16,7 +16,7 @@ const [currentPrice, setCurrentPrice] = useState(null)
 useEffect(() =>{
 getChartData()
 }, [])
-debugger
+
 
 const getChartData = () =>{
 
@@ -43,7 +43,7 @@ const getChartData = () =>{
  }
 
  let lastPrice = close[close.length -1]
- debugger
+
 
  const options = {
   title: {

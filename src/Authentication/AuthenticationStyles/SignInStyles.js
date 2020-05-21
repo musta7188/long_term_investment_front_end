@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { blue } from '@material-ui/core/colors';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -7,8 +8,7 @@ export const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: 'url(https://miro.medium.com/max/6506/1*8u8L1qX_xkZaEdnPEFGXzA.jpeg)',
     backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundColor: "blue",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },

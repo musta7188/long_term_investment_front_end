@@ -17,7 +17,7 @@ justify-self: right;
 `
 
 export const StockChartShowInfo = ({ summeryDetails }) => {
-  debugger
+ 
   const {
     previousClose,
     open,
