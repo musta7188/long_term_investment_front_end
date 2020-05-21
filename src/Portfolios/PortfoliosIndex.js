@@ -48,7 +48,7 @@ function PortfoliosIndex(props) {
       {/* route for the stock_chart  */}
       <Route
         exact
-        path={`/chart/:symbol`}
+        path={`/chart/:symbol/:open`}
         render={(props) => <StockChartIndex {...props} />}
       />
     </div>

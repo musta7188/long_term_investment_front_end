@@ -4,17 +4,19 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import ChartTheme from '../Highchart/ChartTheme'
 import GetSummeryDetails from './StockChartInfo/GetSummeryDetails'
+import ComparePrices from './ComparePrices'
+
 Highcharts.setOptions(ChartTheme)
 export default function StockChartIndex(props) {
 
-
+const [open, setOpen] = useState(props.match.params.open)
 const [symbol, setSymbol] = useState(props.match.params.symbol)
 const [option, setOption] = useState(null)
-
+const [currentPrice, setCurrentPrice] = useState(null)
 useEffect(() =>{
 getChartData()
 }, [])
-
+debugger
 
 const getChartData = () =>{
 
@@ -29,7 +31,6 @@ const getChartData = () =>{
 
   const data = []
 
-
   let date =  ChartData["chart"]["result"][0]["timestamp"]
  let open =  ChartData["chart"]["result"][0]["indicators"]["quote"][0]["open"]
  let high = ChartData["chart"]["result"][0]["indicators"]["quote"][0]["high"]
@@ -41,6 +42,7 @@ const getChartData = () =>{
    data.push([date[i], open[i], high[i], low[i], close[i], volume[i]])
  }
 
+ let lastPrice = close[close.length -1]
  debugger
 
  const options = {
@@ -55,6 +57,7 @@ const getChartData = () =>{
 };
 
 setOption(options)
+setCurrentPrice(lastPrice)
 
 })
 
@@ -64,6 +67,7 @@ setOption(options)
     <div>
     {option && 
     <>
+    {currentPrice && < ComparePrices open={open} currentPrice={currentPrice}/>}
     <HighchartsReact
       highcharts={Highcharts}
       constructorType={'stockChart'}

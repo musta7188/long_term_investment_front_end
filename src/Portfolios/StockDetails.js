@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   StocksGrid,
   SymbolDiv,
@@ -7,6 +8,7 @@ import {
   ButtonDetails,
   DeleteButton,
 } from "../styles/StockDetailsStyles";
+import { Link } from "react-router-dom";
 
 export default function StockDetails(props) {
   const { symbol, open, units, DeleteSelectedStock, id } = props;
@@ -22,7 +24,7 @@ export default function StockDetails(props) {
         <PriceDiv>{units}</PriceDiv>
         <InfoDiv>Value:</InfoDiv>
         <PriceDiv>$ {units * open}</PriceDiv>
-        <ButtonDetails>Chart</ButtonDetails>
+       <Link to={`/chart/${symbol}/${open}`}><ButtonDetails>Chart</ButtonDetails></Link> 
         <ButtonDetails>News</ButtonDetails>
         <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
         <ButtonDetails>Edit</ButtonDetails>
