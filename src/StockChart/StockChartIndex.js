@@ -1,11 +1,10 @@
 import React, {useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-// import ReactHighcharts from "react-highcharts";
-// import StockChartConfiguration from './StockChartConfiguration'
-
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-
+import ChartTheme from '../Highchart/ChartTheme'
+import GetSummeryDetails from './StockChartInfo/GetSummeryDetails'
+Highcharts.setOptions(ChartTheme)
 export default function StockChartIndex(props) {
 
 
@@ -59,21 +58,22 @@ setOption(options)
 
 })
 
-
 }
-
-
-
-
-
 
   return (
     <div>
-    {option && <HighchartsReact
+    {option && 
+    <>
+    <HighchartsReact
       highcharts={Highcharts}
       constructorType={'stockChart'}
       options={option}
-    />}
+    /> 
+    Summery Details
+    <br></br>
+    <GetSummeryDetails symbol={symbol}/>
+    </>
+    }
     </div>
   )
 }

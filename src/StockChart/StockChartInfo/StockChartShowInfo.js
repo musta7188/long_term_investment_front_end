@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { InfoDiv } from "../styles/SelectedStockStyles";
+import { InfoDiv } from "../../styles/SelectedStockStyles"
+
 import styled from "styled-components";
 
 const Detail = styled.h3`
@@ -16,8 +16,8 @@ justify-self: right;
 
 `
 
-export const index = ({ summeryDetails }) => {
-  
+export const StockChartShowInfo = ({ summeryDetails }) => {
+  debugger
   const {
     previousClose,
     open,
@@ -82,10 +82,5 @@ export const index = ({ summeryDetails }) => {
   return whatTORender();
 };
 
-const mapStateToProps = (state) => ({
-  summeryDetails: state.summeryDetails,
-});
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(index);
+export default StockChartShowInfo

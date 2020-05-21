@@ -3,6 +3,7 @@ import HighChartsConfig from "./HighchartsConfig";
 import ReactHighcharts from "react-highcharts";
 import styled from "styled-components";
 import ChartTheme from "./ChartTheme";
+
 import { connect } from 'react-redux'
 
 ReactHighcharts.Highcharts.setOptions(ChartTheme);
@@ -39,11 +40,15 @@ function ChartIndex({getChartDataFunction, selectedStock}) {
       .then((data) => {
         let combineData = [];
 
-        let price = data["chart"]["result"][0]["indicators"]["quote"][0]["open"];
-        let date = data["chart"]["result"][0]["timestamp"];
+        let date =  data["chart"]["result"][0]["timestamp"]
+        let open =  data["chart"]["result"][0]["indicators"]["quote"][0]["open"]
+        let high = data["chart"]["result"][0]["indicators"]["quote"][0]["high"]
+        let low = data["chart"]["result"][0]["indicators"]["quote"][0]["low"]
+        let close = data["chart"]["result"][0]["indicators"]["quote"][0]["close"]
+        let volume = data["chart"]["result"][0]["indicators"]["quote"][0]["volume"]
 
-        for (let i = 0; i < price.length; i += 1) {
-          combineData.push([date[i], price[i]]);
+        for (let i = 0; i < open.length; i += 1) {
+          combineData.push([date[i], open[i], high[i], low[i], close[i], volume[i]])
         }
          
         setData({
