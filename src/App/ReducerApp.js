@@ -61,6 +61,12 @@ const ReducerApp = (state = initialState, action) => {
       searchedStocks: action.payload.stocks
     }
   }
+  if(action.type === "DELETE_PORTFOLIOS"){
+    return{
+      ...state,
+      userPortfolios: state.userPortfolios.filter(port => port.id != action.payload.portfolio.id)
+    }
+  }
   return state;
 };
 

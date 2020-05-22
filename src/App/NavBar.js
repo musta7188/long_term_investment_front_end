@@ -34,7 +34,7 @@ import { connect } from "react-redux";
 
   return (
    <>
- <div> <Link to='/sign-in'><ExitToAppIcon onClick={() => handleLogOut()}/></Link> </div>  
+ <div> <Link style={{ color: "white", textDecoration: "none" }} to='/sign-in'>Log Out <br></br><ExitToAppIcon onClick={() => handleLogOut()}/></Link> </div>  
 
    <Bar>
       <Logo>Long Term Investment</Logo>

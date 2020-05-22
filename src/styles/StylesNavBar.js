@@ -9,11 +9,14 @@ export const Bar = styled.div`
 `;
 
 export const Logo = styled.div`
+  padding: 5px;
   font-size: 1.5em;
+  font-family: 'Anton', sans-serif;
+  color: green;
 `;
 
 export const ControlButtonElem = styled.div`
-  padding: 20px;
+  padding-top: 25px;
  color: white;
   text-shadow: 0px 0px 60px #03ff03;
   &:hover {

@@ -7,6 +7,7 @@ import {
   PriceDiv,
   ButtonDetails,
   DeleteButton,
+  
 } from "../styles/StockDetailsStyles";
 import { Link } from "react-router-dom";
 
@@ -24,10 +25,10 @@ export default function StockDetails(props) {
         <PriceDiv>{units}</PriceDiv>
         <InfoDiv>Value:</InfoDiv>
         <PriceDiv>$ {units * open}</PriceDiv>
-       <Link to={`/chart/${symbol}/${open}`}><ButtonDetails>Chart</ButtonDetails></Link> 
+       <Link style={{ color: "white", textDecoration: "none" }} to={`/chart/${symbol}/${open}`}><ButtonDetails>Chart</ButtonDetails></Link> 
       <Link to={`/news/${symbol}`}><ButtonDetails>News</ButtonDetails></Link>  
-        <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
-        <ButtonDetails>Edit</ButtonDetails>
+      <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
+
       </StocksGrid>
     </>
   );

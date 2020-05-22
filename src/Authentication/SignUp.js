@@ -115,11 +115,7 @@ function SignUp(props) {
               id="password-confirmation"
               autoComplete="current-password-confirmation"
             />
-      
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+    
             <Button
               type="submit"
               fullWidth

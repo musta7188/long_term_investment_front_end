@@ -39,9 +39,12 @@ background: green;
 color: white;
 margin: 2px;
 margin-top: 5px;
+width: 60px;
 `
 
 export const DeleteButton = styled(ButtonDetails)`
 color: black;
 background: red;
+
+align-text: left;
 `

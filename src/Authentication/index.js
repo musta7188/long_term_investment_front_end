@@ -2,13 +2,12 @@ import React from 'react'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import { Route } from "react-router-dom";
-import styled from "styled-components";
+import styled from 'styled-components';
+
+
+
 export default function index() {
 
-const Body =  styled.div`
-background: red;
-
-`
   return (
 
       <div>
