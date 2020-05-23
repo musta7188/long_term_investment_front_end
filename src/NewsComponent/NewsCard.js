@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NewsCard({news, symbol}) {
-  debugger
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [dateTime, setDateTime] = useState("")

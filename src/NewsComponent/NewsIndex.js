@@ -42,7 +42,7 @@ getNews()
 
   return (
     <DivNews>
-     {news && news.slice(0, 5).map(n => <NewsCard symbol={symbol} news={n}/>)}
+     {news && news.map(n => <NewsCard symbol={symbol} news={n}/>)}
     </DivNews>
   )
 }

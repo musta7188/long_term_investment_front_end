@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getPortfolioDetails } from "../APIs/Apis";
-import { StockGrid } from "../styles/StocksPageStyles";
+import {StockGridPortfolio} from "../styles/StocksPageStyles";
 import StockDetails from "./StockDetails";
 import {DeleteStock} from '../APIs/Apis'
 export default function PortfolioDetails(props) {
@@ -31,7 +31,7 @@ export default function PortfolioDetails(props) {
   return (
     <div>
       <h1> Portfolio: {portfolio.name}</h1>
-      <StockGrid>
+      <StockGridPortfolio>
         {stocks.length ?
         
           stocks.map((stock) => (
@@ -43,7 +43,7 @@ export default function PortfolioDetails(props) {
               DeleteSelectedStock={DeleteSelectedStock}
             /> 
           )) : <p>Your Portfolio is empty</p> }
-      </StockGrid>
+      </StockGridPortfolio>
     </div>
   );
 }

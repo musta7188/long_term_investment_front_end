@@ -9,6 +9,22 @@ import {
 } from "../styles/StockCardStyles";
 import { connect } from "react-redux";
 import { getPriceData } from "../APIs/Apis";
+import { Link} from "@material-ui/core";
+import styled from 'styled-components'
+
+const BuyInfoButton = styled.button`
+background: blue;
+margin-top:15px;
+color: white;
+font-size: 15px;
+
+`
+
+const NewsButton = styled(BuyInfoButton)`
+width: 80px;
+text-align: center;
+`
+
 
 function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails }) {
   const [currentPrice, setCurrentPrice] = useState(null);
@@ -40,7 +56,7 @@ function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails })
   }
 
   return (
-    <StockHeaderGridStyled onClick={() => submitSelectedStock(stock.symbol)}>
+    <StockHeaderGridStyled >
       <StockSymbol>{stock.symbol}</StockSymbol>
 
       {currentPrice ? (
@@ -50,13 +66,16 @@ function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails })
       )}
 
       <MyPriceSign>
-        <div> Entry:</div>
+        <strong> Entry:</strong>
       </MyPriceSign>
       <MyPriceValue>${stock.price}</MyPriceValue>
       <MyPriceSign>
-        <div> Current:</div>
+        <strong> Current:</strong>
       </MyPriceSign>
       <MyPriceValue>${currentPrice ? currentPrice : "00"}</MyPriceValue>
+    <Link href={`infoBuy/${stock.symbol}`}> <BuyInfoButton><strong>Buy info</strong></BuyInfoButton></Link> 
+     <Link href={`News/${stock.symbol}`}><NewsButton><strong>News</strong></NewsButton></Link> 
+     <NewsButton onClick={() => submitSelectedStock(stock.symbol)}><strong>Chart</strong></NewsButton>
     </StockHeaderGridStyled>
   );
 }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { getPriceData } from '../../APIs/Apis'
 import StockChartShowInfo from './StockChartShowInfo'
+import {SelectedStockDiv} from '../../styles/SelectedStockStyles'
 
 export default function GetSummeryDetails({symbol}) {
 
@@ -23,8 +24,8 @@ export default function GetSummeryDetails({symbol}) {
 
 
   return (
-    <div>
+    <SelectedStockDiv>
     { currentStockData && <StockChartShowInfo summeryDetails={currentStockData}/>}
-    </div>
+    </SelectedStockDiv>
   )
 }

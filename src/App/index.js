@@ -10,6 +10,7 @@ import Authentication from "../Authentication";
 import { validate } from "../APIs/Apis";
 import PortfoliosIndex from "../Portfolios/PortfoliosIndex";
 import SearchIndex from '../Search/SearchIndex'
+import BuyInfo from '../BuyInfo'
 function App(props) {
   const { saveRecommendedStock, setUser, currentUser } = props;
   useEffect(() => {
@@ -45,7 +46,10 @@ function App(props) {
             path={"/Search"}
           render={(props) => <SearchIndex {...props} />}
         />
-
+          <Route
+            path={"/infoBuy/:symbol"}
+          render={(props) => <BuyInfo {...props} />}
+        />
         </AppLayout>
       ) : (
         <Route render={(props) => <Authentication {...props} />} />

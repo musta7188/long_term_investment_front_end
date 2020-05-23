@@ -8,7 +8,7 @@ import { StockGrid } from "../styles/StocksPageStyles";
 function StocksPage({ recommendedStocks }) {
   return (
     <StockGrid>
-      {recommendedStocks.slice(0, 4).map((stock) => (
+      {recommendedStocks.slice(0, 5).map((stock) => (
         <SelectableCard>
           <StockCard stock={stock} />
         </SelectableCard>

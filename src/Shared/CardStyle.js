@@ -9,7 +9,8 @@ export const SelectableCard = styled(Card)`
     ${greenBoxShadow}
   }
   color: white;
-  padding: 4px;
+  padding: 10px;
+  width: max-content;
   ${lightBlueBackground}
 `;
 
