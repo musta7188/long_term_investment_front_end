@@ -40,6 +40,7 @@ import { connect } from "react-redux";
       <Logo>Long Term Investment</Logo>
       <Button value={"Recommendation"} currentSelected={currentSelected} />
       <Button value={"Portfolio"} currentSelected={currentSelected} />
+    
       <Button value={"Search"} currentSelected={currentSelected} />
    
     </Bar>

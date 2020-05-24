@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import NewsCard from './NewsCard'
 import styled from 'styled-components'
 import { Route } from 'react-router-dom'
-
+import NewsSearch from './NewsSearch'
 
 const DivNews = styled.div`
 display: grid;
@@ -18,11 +18,11 @@ export default function NewsIndex(props) {
   const [news, setNews] = useState(null)
 
   useEffect(() => {
-getNews()
+getNews(symbol)
   }, [])
 
 
-  const getNews = () =>{
+  const getNews = (symbol) =>{
     fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-news?region=US&category=${symbol}`, {
 	"method": "GET",
 	"headers": {
@@ -41,8 +41,15 @@ getNews()
   }
 
   return (
+    <>  
+
+<Route render={props => <NewsSearch setSymbol={setSymbol} getNews={getNews} {...props}/> }    />
+
+   
+    <br></br>
     <DivNews>
      {news && news.slice(0, 7).map(n => <NewsCard symbol={symbol} news={n}/>)}
     </DivNews>
+    </>
   )
 }

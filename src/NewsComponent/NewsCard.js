@@ -40,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewsCard({news, symbol}) {
 
+  debugger
+
   const classes = useStyles();
 
   const [dateTime, setDateTime] = useState("")
