@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getPortfolioDetails } from "../APIs/Apis";
-import {StockGridPortfolio} from "../styles/StocksPageStyles";
+import {StockGridPortfolio, AddStockButton} from "../styles/StocksPageStyles";
 import StockDetails from "./StockDetails";
 import {DeleteStock} from '../APIs/Apis'
+import { Link } from "react-router-dom";
 export default function PortfolioDetails(props) {
   const [portfolio, setPortfolio] = useState("");
   const [stocks, setStocks] = useState("");
@@ -42,7 +43,16 @@ export default function PortfolioDetails(props) {
               id={stock.id}
               DeleteSelectedStock={DeleteSelectedStock}
             /> 
-          )) : <p>Your Portfolio is empty</p> }
+          )) :
+          <>
+       
+            <Link to={'/Search'}>
+              <AddStockButton >
+                Add stock
+                </AddStockButton>
+                </Link>
+                </>  
+                }
       </StockGridPortfolio>
     </div>
   );

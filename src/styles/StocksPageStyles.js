@@ -13,3 +13,9 @@ export const StockGridPortfolio = styled(StockGrid)`
 grid-gap: 15px;
 padding-right: 20px;
 `
+
+export const AddStockButton = styled.button`
+background: green;
+font-size: 20px;
+color: white;
+`
