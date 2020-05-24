@@ -11,7 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-
+import ModalOpenSummary from './ModalOpenSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NewsCard({news, symbol}) {
 
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+
   const [dateTime, setDateTime] = useState("")
 
   useEffect(() => {
@@ -63,9 +63,6 @@ let currentDate = newDate.toLocaleString()
 setDateTime(currentDate)
   }
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.root}>
@@ -85,32 +82,19 @@ setDateTime(currentDate)
         title="main news image"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography>
          <a href={news["link"]}target="_blank"> Read Full Article </a>
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          Read summary
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Summery:</Typography>
-          <Typography paragraph>
-         {news["summary"]}
-          </Typography> 
-        </CardContent>
-      </Collapse>
+    
+      <Typography >
+           <div style={{textAlign: "right", margin:20}}>
+     < ModalOpenSummary summary={news["summary"]}/>
+      </div>
+      </Typography>
+
+
+
     </Card>
   );
 }

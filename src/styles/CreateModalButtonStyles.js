@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
   paper: {
     color: "black",
     position: 'absolute',
-    width: 300,
+    width: "600px",
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -35,4 +35,12 @@ background: green;
 font-size:15px;
 color:white;
 margin-top: 20px;
+`
+export const ReadSummaryButton = styled.button`
+background: #2f0bb9;
+margin-bottom: 10px;
+margin_top: 20px;
+color: white;
+font-size: 20px;
+
 `
