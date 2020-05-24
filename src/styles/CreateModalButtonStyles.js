@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
 export const useStyles = makeStyles((theme) => ({
   paper: {
@@ -28,3 +29,10 @@ export function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
+
+export const AddPortfolioButton = styled.button`
+background: green;
+font-size:15px;
+color:white;
+margin-top: 20px;
+`

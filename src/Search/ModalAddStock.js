@@ -1,7 +1,6 @@
 import React from 'react';
-import {useStyles, getModalStyle} from '../styles/CreateModalButtonStyles'
+import {useStyles, getModalStyle, AddPortfolioButton } from '../styles/CreateModalButtonStyles'
 import Modal from '@material-ui/core/Modal';
-import AddIcon from '@material-ui/icons/Add';
 import AddStockForm from './AddStockForm'
 
 
@@ -28,8 +27,7 @@ export default function ModalAddStock({symbol, name}) {
 
   return (
     <div>
-
-     < AddIcon type="button" onClick={handleOpen}/>
+     <AddPortfolioButton  onClick={handleOpen}> Add to portfolio</AddPortfolioButton >
       <Modal
         open={open}
         onClose={handleClose}
