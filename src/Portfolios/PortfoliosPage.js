@@ -13,11 +13,7 @@ function PortfoliosPage(props) {
     <PortfoliosGrid>
       {userPortfolios &&
         userPortfolios.map((port) => (
-          <PortfoliosCardStyle>
-         
               <PortfoliosCard portfolio={port} />
-
-          </PortfoliosCardStyle>
         ))}
     </PortfoliosGrid>
   );

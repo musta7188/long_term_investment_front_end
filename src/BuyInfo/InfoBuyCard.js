@@ -1,6 +1,6 @@
 import React from 'react'
-import { styled } from '@material-ui/core'
 
+import styled from 'styled-components'
 
 
 
@@ -11,23 +11,26 @@ export default function InfoBuyCard({stock}) {
   const InfoBuy = stock[0]["info_buy"]
   
 
-debugger
+  const TitleDiv = styled.h1`
+  text-align: center;
+  color: black;
+  `
   return (
   <div> 
 
-  <h1> Buy {stock.symbol}</h1>
+  <TitleDiv> Buy {stock[0].symbol}</TitleDiv>
   <p>{InfoBuy["summary"]}</p>
-<h1>The Big-Picture Opportunity</h1>
+<TitleDiv>The Big-Picture Opportunity</TitleDiv>
 <p>{InfoBuy["big_picture"]}</p>
-<h1>Why We're Excited About Globus Medical</h1>
+<TitleDiv>Why We're Excited About Globus Medical</TitleDiv>
 <p>{InfoBuy["why_to_buy"]}</p>
-<h1>Why We Trust Leadership</h1>
+<TitleDiv>Why We Trust Leadership</TitleDiv>
 <p>{InfoBuy["leadership"]}</p>
-<h1>Why Now</h1>
+<TitleDiv>Why Now</TitleDiv>
 <p>{InfoBuy["why_now"]}</p>
-<h1>Potential Business Risks</h1>
+<TitleDiv>Potential Business Risks</TitleDiv>
 <p>{InfoBuy["risk"]}</p>
-<h1>Why Globus Medical Is Worth an Investment Today</h1>
+<TitleDiv>Why Globus Medical Is Worth an Investment Today</TitleDiv>
 <p>{InfoBuy["investment_value"]}</p>
   </div>
      

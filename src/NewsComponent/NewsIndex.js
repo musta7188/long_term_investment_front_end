@@ -43,9 +43,8 @@ getNews(symbol)
   return (
     <>  
 
-<Route render={props => <NewsSearch setSymbol={setSymbol} getNews={getNews} {...props}/> }    />
-
-   
+    
+    <Route render={props => <NewsSearch setSymbol={setSymbol} getNews={getNews} {...props}/> }    />
     <br></br>
     <DivNews>
      {news && news.slice(0, 7).map(n => <NewsCard symbol={symbol} news={n}/>)}

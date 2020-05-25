@@ -7,7 +7,7 @@ import { CreateDiv } from "../styles/PortfolioPageStyles";
 import PortfolioDetails from "./PortfolioDetails";
 import { Route } from "react-router-dom";
 import StockChartIndex from '../StockChart/StockChartIndex'
-import NewsIndex from '../NewsComponent/NewsIndex'
+
 function PortfoliosIndex(props) {
 
   const { setPortfolios } = props;
@@ -51,11 +51,7 @@ function PortfoliosIndex(props) {
         path={`/chart/:symbol/:open`}
         render={(props) => <StockChartIndex {...props} />}
       />
-      <Route
-        exact
-        path={`/news/:symbol`}
-        render={(props) => <NewsIndex {...props} />}
-      />
+    
     </div>
   );
 }

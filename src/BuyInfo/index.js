@@ -7,7 +7,7 @@ function index(props) {
   const stock = recommendedStocks.filter(stock => stock.symbol === props["match"]["params"]["symbol"])
 
   return (
-    <div>
+    <div style={{background: "white", color:"black", padding: 30}}>
     {stock.length && <InfoBuyCard stock={stock}/>}
     </div>
   )

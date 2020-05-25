@@ -73,8 +73,8 @@ function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails })
         <strong> Current:</strong>
       </MyPriceSign>
       <MyPriceValue>${currentPrice ? currentPrice : "00"}</MyPriceValue>
-    <Link href={`infoBuy/${stock.symbol}`}> <BuyInfoButton><strong>Buy info</strong></BuyInfoButton></Link> 
-     <Link href={`News/${stock.symbol}`}><NewsButton><strong>News</strong></NewsButton></Link> 
+    <Link href={`/infoBuy/${stock.symbol}`}> <BuyInfoButton><strong>Buy info</strong></BuyInfoButton></Link> 
+     <Link href={`/News/${stock.symbol}`}><NewsButton><strong>News</strong></NewsButton></Link> 
      <NewsButton onClick={() => submitSelectedStock(stock.symbol)}><strong>Chart</strong></NewsButton>
     </StockHeaderGridStyled>
   );
