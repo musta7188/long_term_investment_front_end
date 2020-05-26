@@ -61,7 +61,7 @@ const DeletePortfolio = (id) =>{
         </CardContent>
 
 
-       <Link to={`${portfolio.id}`} style={{textDecoration: "none"}}> 
+       <Link to={`/Portfolio/${portfolio.id}`} style={{textDecoration: "none"}}> 
         <Button size="small" color="primary">
           View
         </Button>

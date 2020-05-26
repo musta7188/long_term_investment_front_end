@@ -7,6 +7,7 @@ text-align: center;
 `
 
 export const SearchInputStyle = styled.input`
+
 padding: 0.5em;
   margin: 0.5em;
   font-size: 15px;
@@ -19,6 +20,7 @@ padding: 0.5em;
 `
 
 export const SearchButton = styled.button`
+
 background: green;
 color: white;
 border-radius: 10px;

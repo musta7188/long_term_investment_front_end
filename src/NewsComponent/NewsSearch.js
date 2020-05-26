@@ -19,6 +19,7 @@ function NewsSearch(props) {
   return (
     <>
       <SearchInputDiv>
+       
         <SearchInputStyle
           type={"text"}
           placeholder={"Stock symbol"}
@@ -26,6 +27,10 @@ function NewsSearch(props) {
           onChange={(e) => setSearchedStock(e.target.value)}
         />
         <SearchButton onClick={() => handleSubmit()}>Search</SearchButton>
+
+         <p style={{fontSize: 10, marginRight: 70}}>*Use the stock Symbol to find the news</p>
+        
+     
       </SearchInputDiv>
     </>
   );

@@ -9,9 +9,9 @@ import { Route } from "react-router-dom";
 import Authentication from "../Authentication";
 import { validate } from "../APIs/Apis";
 import PortfoliosIndex from "../Portfolios/PortfoliosIndex";
-import SearchIndex from '../Search/SearchIndex'
-import BuyInfo from '../BuyInfo'
-import NewsIndex from '../NewsComponent/NewsIndex'
+import SearchIndex from "../Search/SearchIndex";
+import BuyInfo from "../BuyInfo";
+import NewsIndex from "../NewsComponent/NewsIndex";
 function App(props) {
   const { saveRecommendedStock, setUser, currentUser } = props;
   useEffect(() => {
@@ -37,25 +37,24 @@ function App(props) {
         <AppLayout className="App">
           <NavBar />
           <Route
-         
             path={"/Recommendation"}
             render={(props) => <Recommendation {...props} />}
           />
           <Route render={(props) => <PortfoliosIndex {...props} />} />
 
-           <Route
+          <Route
             path={"/Search"}
-          render={(props) => <SearchIndex {...props} />}
-        />
+            render={(props) => <SearchIndex {...props} />}
+          />
           <Route
             path={"/infoBuy/:symbol"}
-          render={(props) => <BuyInfo {...props} />}
-        />
+            render={(props) => <BuyInfo {...props} />}
+          />
           <Route
-        exact
-        path={`/News/:symbol`}
-        render={(props) => <NewsIndex {...props} />}
-      />
+            exact
+            path={`/News/:symbol`}
+            render={(props) => <NewsIndex {...props} />}
+          />
         </AppLayout>
       ) : (
         <Route render={(props) => <Authentication {...props} />} />

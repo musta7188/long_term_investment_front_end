@@ -1,4 +1,7 @@
+
 import styled, { css } from "styled-components";
+import React from 'react'
+import { Link } from "react-router-dom";
 export const Bar = styled.div`
   display: grid;
   margin-bottom: 40px;
@@ -14,7 +17,7 @@ export const Logo = styled.div`
   padding: 5px;
   font-size: 1.5em;
   font-family: 'Anton', sans-serif;
-  color: green;
+  color: white;
   margin-right:20px;
 `;
 
@@ -27,8 +30,38 @@ export const ControlButtonElem = styled.div`
     cursor: pointer;
   }
   margin-top:20px;
+  margin-bottom: 20px;
 `;
 
 export const ActiveButton = styled(ControlButtonElem)`
 color: green;
 `
+
+export function Button( {value, currentValue, setCurrentSelected} ) {
+  return currentValue === value ? (
+    <Link style={{ textDecoration: "none" }} to={`/${value}`}>
+      {" "}
+      <ActiveButton>
+        <strong>{value}</strong>
+      </ActiveButton>
+    </Link>
+  ) : value === "News" ? (
+    <Link
+      to={`/${value}/^FTSE`}
+      style={{ textDecoration: "none" }}
+      onClick={() => setCurrentSelected(value)}
+    >
+      {" "}
+      <ControlButtonElem>{value}</ControlButtonElem>
+    </Link>
+  ) : (
+    <Link
+      to={`/${value}/`}
+      style={{ textDecoration: "none" }}
+      onClick={() => setCurrentSelected(value)}
+    >
+      {" "}
+      <ControlButtonElem>{value}</ControlButtonElem>
+    </Link>
+  );
+}

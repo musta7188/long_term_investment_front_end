@@ -66,7 +66,7 @@ function StockCard({ stock, getSelectedStock, getChartData, getSummeryDetails })
       )}
 
       <MyPriceSign>
-        <strong> Entry:</strong>
+        <strong> Open:</strong>
       </MyPriceSign>
       <MyPriceValue>${stock.price}</MyPriceValue>
       <MyPriceSign>
