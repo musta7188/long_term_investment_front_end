@@ -6,10 +6,9 @@ import CreateModalButton from "./CreateModalButton";
 import { CreateDiv } from "../styles/PortfolioPageStyles";
 import PortfolioDetails from "./PortfolioDetails";
 import { Route } from "react-router-dom";
-import StockChartIndex from '../StockChart/StockChartIndex'
+import StockChartIndex from "../StockChart/StockChartIndex";
 
 function PortfoliosIndex(props) {
-
   const { setPortfolios } = props;
 
   useEffect(() => {
@@ -51,7 +50,6 @@ function PortfoliosIndex(props) {
         path={`/chart/:symbol/:open`}
         render={(props) => <StockChartIndex {...props} />}
       />
-    
     </div>
   );
 }

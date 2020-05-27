@@ -1,19 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { InfoDiv } from "../styles/SelectedStockStyles";
-import styled from "styled-components";
+import { InfoDiv, Detail, Value } from "../styles/SelectedStockStyles";
 
-const Detail = styled.h3`
-  font-size: 15px;
-
-`;
-
-const Value = styled.h4`
-
-font-size: 18px;
-justify-self: right;
-
-`
 
 export const index = ({ summeryDetails }) => {
   

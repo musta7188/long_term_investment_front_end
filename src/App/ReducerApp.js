@@ -5,7 +5,7 @@ const initialState = {
   summeryDetails: [],
   currentUser: null,
   userPortfolios: null,
-  searchedStocks:[]
+  searchedStocks: [],
 };
 
 const ReducerApp = (state = initialState, action) => {
@@ -29,43 +29,45 @@ const ReducerApp = (state = initialState, action) => {
       getChartData: action.payload.getChartData,
     };
   }
-  if(action.type === "SET_SUMMERY_DETAILS"){
+  if (action.type === "SET_SUMMERY_DETAILS") {
     return {
       ...state,
-      summeryDetails: action.payload.data
-
-    }
+      summeryDetails: action.payload.data,
+    };
   }
-  if (action.type === "SET_USER"){
+  if (action.type === "SET_USER") {
     return {
       ...state,
-      currentUser: action.payload.user
-    }
+      currentUser: action.payload.user,
+    };
   }
-  if(action.type === "SET_PORTFOLIOS"){
+  if (action.type === "SET_PORTFOLIOS") {
     return {
       ...state,
-      userPortfolios: action.payload.portfolios
-    }
+      userPortfolios: action.payload.portfolios,
+    };
   }
-  if (action.type === "ADD_PORTFOLIO"){
+  if (action.type === "ADD_PORTFOLIO") {
     return {
       ...state,
-      userPortfolios: state.userPortfolios? [...state.userPortfolios, action.payload.portfolio] :
-      [action.payload.portfolio]
-    }
+      userPortfolios: state.userPortfolios
+        ? [...state.userPortfolios, action.payload.portfolio]
+        : [action.payload.portfolio],
+    };
   }
-  if(action.type === "SEARCHED_STOCK"){
-    return{
+  if (action.type === "SEARCHED_STOCK") {
+    return {
       ...state,
-      searchedStocks: action.payload.stocks
-    }
+      searchedStocks: action.payload.stocks,
+    };
   }
-  if(action.type === "DELETE_PORTFOLIOS"){
-    return{
+  if (action.type === "DELETE_PORTFOLIOS") {
+    return {
       ...state,
-      userPortfolios: state.userPortfolios.filter(port => port.id != action.payload.portfolio.id)
-    }
+      userPortfolios: state.userPortfolios.filter(
+        (port) => port.id != action.payload.portfolio.id
+      ),
+    };
   }
   return state;
 };

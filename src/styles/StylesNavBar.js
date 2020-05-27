@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 export const Bar = styled.div`
   display: grid;
   margin-bottom: 40px;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   background-color: black;
   color: white;
   text-align: center;
-  grid-gap:50px;
+  grid-gap:10px;
  
 `;
 
@@ -19,6 +19,8 @@ export const Logo = styled.div`
   font-family: 'Anton', sans-serif;
   color: white;
   margin-right:20px;
+
+  margin-top:
 `;
 
 export const ControlButtonElem = styled.div`
@@ -35,10 +37,11 @@ export const ControlButtonElem = styled.div`
 
 export const ActiveButton = styled(ControlButtonElem)`
 color: green;
+font-size: 20px;
 `
 
-export function Button( {value, currentValue, setCurrentSelected} ) {
-  return currentValue === value ? (
+export function Button( {value, currentSelected, setCurrentSelected} ) {
+  return currentSelected === value ? (
     <Link style={{ textDecoration: "none" }} to={`/${value}`}>
       {" "}
       <ActiveButton>

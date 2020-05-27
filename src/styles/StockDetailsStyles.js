@@ -20,12 +20,12 @@ margin-top: 5px;
 font-size: 20px;
 
 
-
 `
 
 export const InfoDiv = styled.div`
 text-align: left;
 margin-top: 20px;
+
 `
 
 export const PriceDiv = styled.div`

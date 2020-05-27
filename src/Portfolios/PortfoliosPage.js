@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PortfoliosCard from "./PortfoliosCard";
-import {
-  PortfoliosGrid,
-  PortfoliosCardStyle,
-} from "../styles/PortfolioPageStyles";
+import { PortfoliosGrid } from "../styles/PortfolioPageStyles";
 
 function PortfoliosPage(props) {
   const { userPortfolios } = props;
@@ -12,9 +9,7 @@ function PortfoliosPage(props) {
   return (
     <PortfoliosGrid>
       {userPortfolios &&
-        userPortfolios.map((port) => (
-              <PortfoliosCard portfolio={port} />
-        ))}
+        userPortfolios.map((port) => <PortfoliosCard portfolio={port} />)}
     </PortfoliosGrid>
   );
 }

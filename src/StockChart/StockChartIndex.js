@@ -1,22 +1,29 @@
 import React, {useState, useEffect } from 'react'
-import { connect } from 'react-redux'
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import ChartTheme from '../Highchart/ChartTheme'
 import GetSummeryDetails from './StockChartInfo/GetSummeryDetails'
 import ComparePrices from './ComparePrices'
 
-Highcharts.setOptions(ChartTheme)
+
+
 export default function StockChartIndex(props) {
 
-const [open, setOpen] = useState(props.match.params.open)
-const [symbol, setSymbol] = useState(props.match.params.symbol)
+const [open] = useState(props.match.params.open)
+const [symbol] = useState(props.match.params.symbol)
 const [option, setOption] = useState(null)
 const [currentPrice, setCurrentPrice] = useState(null)
 useEffect(() =>{
 getChartData()
 }, [])
 
+
+
+
+const  roundTo = (value, places) => {
+  var power = Math.pow(10, places);
+  return Math.round(value * power) / power;
+}
 
 const getChartData = () =>{
 
@@ -30,7 +37,7 @@ const getChartData = () =>{
 }).then(resp => resp.json()).then(ChartData => {
 
   const data = []
-
+  const sym  = ChartData["chart"]["result"][0]["meta"]["symbol"]
   let date =  ChartData["chart"]["result"][0]["timestamp"]
  let open =  ChartData["chart"]["result"][0]["indicators"]["quote"][0]["open"]
  let high = ChartData["chart"]["result"][0]["indicators"]["quote"][0]["high"]
@@ -39,7 +46,7 @@ const getChartData = () =>{
  let volume = ChartData["chart"]["result"][0]["indicators"]["quote"][0]["volume"]
 
  for (let i = 0; i < date.length; i += 1){
-   data.push([date[i], open[i], high[i], low[i], close[i], volume[i]])
+   data.push([date[i] * 1000, roundTo(open[i], 2), roundTo(high[i], 2), roundTo(low[i], 2), roundTo(close[i], 2), roundTo(volume[i], 2)])
  }
 
  let lastPrice = close[close.length -1]
@@ -47,7 +54,7 @@ const getChartData = () =>{
 
  const options = {
   title: {
-    text: 'My stock chart'
+    text: sym
   },
   series: [
     {

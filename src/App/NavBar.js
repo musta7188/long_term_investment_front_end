@@ -22,12 +22,12 @@ function NavBar({ setUser, props }) {
         {" "}
         <Link style={{ color: "white", textDecoration: "none" }} to="/sign-in">
           Log Out <br></br>
-          <ExitToAppIcon onClick={() => handleLogOut()} />
+          <ExitToAppIcon  onClick={() => handleLogOut()} />
         </Link>{" "}
       </div>
 
       <Bar>
-        <Logo>Long Term Investment</Logo>
+        <Logo>Long Term Investment Signal</Logo>
         <Button value={"Recommendation"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
         <Button value={"Portfolio"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
         <Button value={"Search"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />

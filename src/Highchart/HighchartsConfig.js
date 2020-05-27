@@ -11,7 +11,7 @@ export default function (data) {
           text: 'Price'
         }
       },
-      xAxis: {type: 'date'},
+      xAxis: {type: 'datetime'},
     
   
       legend: {

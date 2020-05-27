@@ -1,12 +1,12 @@
-import React from 'react';
-import {useStyles, getModalStyle, ReadSummaryButton} from '../styles/CreateModalButtonStyles'
-import Modal from '@material-ui/core/Modal';
+import React from "react";
+import {
+  useStyles,
+  getModalStyle,
+  ReadSummaryButton,
+} from "../styles/CreateModalButtonStyles";
+import Modal from "@material-ui/core/Modal";
 
-
-
-
-
-export default function ModalOpenSummary({summary}) {
+export default function ModalOpenSummary({ summary }) {
   const classes = useStyles();
 
   const [modalStyle] = React.useState(getModalStyle);
@@ -23,20 +23,13 @@ export default function ModalOpenSummary({summary}) {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       {summary}
-   
     </div>
   );
 
   return (
     <div>
-      <ReadSummaryButton onClick={handleOpen}>
-        Read summary
-      </ReadSummaryButton>
-      <Modal
-        open={open}
-        onClose={handleClose}
-    
-      >
+      <ReadSummaryButton onClick={handleOpen}>Read summary</ReadSummaryButton>
+      <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>
     </div>

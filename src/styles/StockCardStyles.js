@@ -12,11 +12,13 @@ export const StockPercentage = styled.div`
 export const StockSymbol = styled.div`
   justify-self: left;
   font-size: 30px;
+
 `;
 
 export const StockHeaderGridStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  color: black;
   
 `;
 
@@ -36,6 +38,29 @@ export const MyPriceValue = styled(MyPriceSign)`
 export const StockPercentageRed = styled(StockPercentage)`
   color: red;
 `;
+
+
+
+
+export const BuyInfoButton = styled.button`
+background: blue;
+margin-top:15px;
+color: white;
+font-size: 15px;
+
+`
+
+export const NewsButton = styled(BuyInfoButton)`
+width: 80px;
+text-align: center;
+`
+
+
+
+
+
+
+
 
 export const PercentageColor = (percentage) => {
 

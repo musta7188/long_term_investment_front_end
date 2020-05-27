@@ -1,32 +1,32 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { blue } from '@material-ui/core/colors';
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  body:{
+  body: {
     background: "blue",
   },
   root: {
-    height: '100vh',
+    height: "100vh",
   },
   image: {
-    backgroundImage: 'url(https://miro.medium.com/max/6506/1*8u8L1qX_xkZaEdnPEFGXzA.jpeg)',
-    backgroundRepeat: 'no-repeat',
+    backgroundImage:
+      "url(https://miro.medium.com/max/6506/1*8u8L1qX_xkZaEdnPEFGXzA.jpeg)",
+    backgroundRepeat: "no-repeat",
     backgroundColor: "blue",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {

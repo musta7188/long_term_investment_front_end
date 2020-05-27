@@ -1,22 +1,22 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import InfoBuyCard from './InfoBuyCard'
+import React from "react";
+import { connect } from "react-redux";
+import InfoBuyCard from "./InfoBuyCard";
 function index(props) {
-  debugger
-  const {recommendedStocks} = props
-  const stock = recommendedStocks.filter(stock => stock.symbol === props["match"]["params"]["symbol"])
+  const { recommendedStocks } = props;
+  const stock = recommendedStocks.filter(
+    (stock) => stock.symbol === props["match"]["params"]["symbol"]
+  );
 
   return (
-    <div style={{background: "white", color:"black", padding: 30}}>
-    {stock.length && <InfoBuyCard stock={stock}/>}
+    <div style={{ background: "white", color: "black", padding: 30 }}>
+      {stock.length && <InfoBuyCard stock={stock} />}
     </div>
-  )
+  );
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    recommendedStocks: state.recommendedStocks
-  }
-}
+    recommendedStocks: state.recommendedStocks,
+  };
+};
 
-
-export default connect(mapStateToProps) (index)
+export default connect(mapStateToProps)(index);

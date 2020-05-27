@@ -5,8 +5,8 @@ const RECOMMENDED_STOCK = `${BASE_URL}/recommended_stocks`;
 const signInURL = `${BASE_URL}sign-in`;
 const validateURL = `${BASE_URL}validate`;
 const portfoliosURL = `${BASE_URL}user-portfolios`;
-const createPortfolioURL = `${BASE_URL}portfolios`;
-
+const allPortfolioURL = `${BASE_URL}portfolios`;
+const allStocksURL = `${BASE_URL}stocks`;
 const signUpURL = `${BASE_URL}users`;
 
 const ANALYSIS_STOCK = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`;
@@ -16,6 +16,22 @@ const ALPHA_VANTAGE_TOKEN = {
   headers: {
     "x-rapidapi-host": "alpha-vantage.p.rapidapi.com",
     "x-rapidapi-key": "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf",
+  },
+};
+
+const TOKEN_API_YAHOO_FINANCE = {
+  method: "GET",
+  headers: {
+    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+    "x-rapidapi-key": "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf",
+  },
+};
+
+const deleteConfig = {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
 };
 
@@ -46,7 +62,11 @@ export const getPortfolioDetails = (id) => {
 };
 
 export const createPortfolio = (body, token) => {
-  return post(createPortfolioURL, body, token).then((resp) => resp.json());
+  return post(allPortfolioURL, body, token).then((resp) => resp.json());
+};
+
+export const createNewStock = (body) => {
+  return post(allStocksURL, body).then((resp) => resp.json());
 };
 
 export const getPortfolios = (token) => {
@@ -66,25 +86,9 @@ export const validate = (token) => {
 };
 
 export const DeleteStock = (id) => {
-  const confObj = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
-
-  return fetch(`http://localhost:3001/stocks/${id}`, confObj).then((resp) =>
+  return fetch(`${allStocksURL}/${id}`, deleteConfig).then((resp) =>
     resp.json()
   );
-};
-
-const TOKEN_API_YAHOO_FINANCE = {
-  method: "GET",
-  headers: {
-    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-    "x-rapidapi-key": "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf",
-  },
 };
 
 export function getRecommendedStock() {
@@ -103,4 +107,16 @@ export const fetchSearchedInput = (value) => {
     `https://alpha-vantage.p.rapidapi.com/query?datatype=json&keywords=${value}&function=SYMBOL_SEARCH`,
     ALPHA_VANTAGE_TOKEN
   ).then((resp) => resp.json());
+};
+
+export const fetchNews = (symbol) => {
+  return fetch(
+    `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-news?region=US&category=${symbol}`,
+    TOKEN_API_YAHOO_FINANCE
+  ).then((resp) => resp.json());
+};
+export const setDeleteRequest = (id) => {
+  return fetch(`${allPortfolioURL}/${id}`, deleteConfig).then((resp) =>
+    resp.json()
+  );
 };
