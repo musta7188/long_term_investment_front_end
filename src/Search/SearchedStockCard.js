@@ -6,7 +6,7 @@ import {
 } from "../styles/SearchedStockCardstyles";
 import ModalAddStock from "./ModalAddStock";
 import { AddPortfolioButton } from "../styles/CreateModalButtonStyles";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export default function SearchedStockCard(props) {
   const { name, symbol, type, marketOpen, marketClose, region } = props;
@@ -37,10 +37,10 @@ export default function SearchedStockCard(props) {
       </strong>
       <InfoDiv>{region}</InfoDiv>
       <ModalAddStock name={name} symbol={symbol} />
-      <Link target="_blank" style={{ textDecoration: "none" }} href={`/News/${symbol}`}>
+      <Link target="_blank" style={{ textDecoration: "none" }} to={`/News/${symbol}`}>
         <AddPortfolioButton style={{ maxWidth: 220 }}>News</AddPortfolioButton>
       </Link>
-      <Link target="_blank"  href={`/chart/${symbol}/nd`}>
+      <Link target="_blank"  to={`/chart/${symbol}/nd`}>
         <AddPortfolioButton style={{ maxWidth: 120 }}>Chart</AddPortfolioButton>
       </Link>
     </SearchStockCardStyled>

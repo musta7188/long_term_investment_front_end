@@ -11,7 +11,7 @@ import {
 } from "../styles/StockCardStyles";
 import { connect } from "react-redux";
 import { getPriceData } from "../APIs/Apis";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function StockCard({
   stock,
@@ -66,7 +66,7 @@ function StockCard({
           <strong>Buy info</strong>
         </BuyInfoButton>
       </Link>
-      <Link href={`/News/${stock.symbol}`}>
+      <Link to={`/News/${stock.symbol}`}>
         <NewsButton>
           <strong>News</strong>
         </NewsButton>
