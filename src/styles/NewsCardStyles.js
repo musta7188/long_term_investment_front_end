@@ -27,8 +27,8 @@ export const useStyles = makeStyles((theme) => ({
 
 export const DivNews = styled.div`
 display: grid;
-grid-gap: 15px;
-grid-template-columns: 1fr 1fr 1fr;
+grid-gap: 25px;
+grid-template-columns:repeat(auto-fill, minmax(400px, 1fr));
 
 `
 
