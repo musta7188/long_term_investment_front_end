@@ -14,7 +14,7 @@ export default function StockDetails(props) {
   const { symbol, open, units, DeleteSelectedStock, id } = props;
 
   return (
-    <>
+
       <StocksGrid>
         <SymbolDiv>{symbol}</SymbolDiv>
         <div></div>
@@ -29,6 +29,6 @@ export default function StockDetails(props) {
       <DeleteButton onClick={() => DeleteSelectedStock(id)}>Delete</DeleteButton>
 
       </StocksGrid>
-    </>
+  
   );
 }

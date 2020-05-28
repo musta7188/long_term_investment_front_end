@@ -9,9 +9,12 @@ align-text: center;
 `;
 
 
-export const StockGridPortfolio = styled(StockGrid)`
-grid-gap: 15px;
+export const StockGridPortfolio = styled.div`
+grid-gap: 125px;
 padding-right: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+
 `
 
 export const AddStockButton = styled.button`

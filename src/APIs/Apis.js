@@ -120,3 +120,7 @@ export const setDeleteRequest = (id) => {
     resp.json()
   );
 };
+
+export const fetchChartData = (symbol) => {
+ return fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?period2=1274362788&period1=1589981988&interval=1d&region=US&symbol=${symbol}&lang=en&range=1y`, TOKEN_API_YAHOO_FINANCE).then(resp => resp.json())
+}

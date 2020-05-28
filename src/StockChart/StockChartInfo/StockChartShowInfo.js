@@ -11,7 +11,7 @@ const Detail = styled.h3`
 const Value = styled.h4`
 
 font-size: 18px;
-border: solid 1px green ;
+
 justify-self: right;
 
 `

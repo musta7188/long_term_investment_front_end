@@ -20,7 +20,7 @@ export const Logo = styled.div`
   color: white;
   margin-right:20px;
 
-  margin-top:
+  margin-top: 20px;
 `;
 
 export const ControlButtonElem = styled.div`

@@ -27,7 +27,7 @@ function NavBar({ setUser, props }) {
       </div>
 
       <Bar>
-        <Logo>Long Term Investment Signal</Logo>
+        <Logo>Long Term Investment</Logo>
         <Button value={"Recommendation"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
         <Button value={"Portfolio"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
         <Button value={"Search"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />

@@ -27,7 +27,8 @@ function App(props) {
         localStorage.token = data.token;
       });
     }
-    if (!currentUser) {
+    if (!localStorage.token) {
+     
     }
   };
 

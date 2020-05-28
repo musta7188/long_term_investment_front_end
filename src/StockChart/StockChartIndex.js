@@ -1,11 +1,11 @@
 import React, {useState, useEffect } from 'react'
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-import ChartTheme from '../Highchart/ChartTheme'
+
 import GetSummeryDetails from './StockChartInfo/GetSummeryDetails'
 import ComparePrices from './ComparePrices'
-
-
+import {fetchChartData} from '../APIs/Apis'
+import {roundTo} from '../Shared/Functions'
 
 export default function StockChartIndex(props) {
 
@@ -18,23 +18,10 @@ getChartData()
 }, [])
 
 
-
-
-const  roundTo = (value, places) => {
-  var power = Math.pow(10, places);
-  return Math.round(value * power) / power;
-}
-
 const getChartData = () =>{
 
   
-  fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?period2=1274362788&period1=1589981988&interval=1d&region=US&symbol=${symbol}&lang=en&range=1y`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-		"x-rapidapi-key": "178f0cd1fbmsh29f81f40b999084p1211d1jsneb0d0e6e0aaf"
-	}
-}).then(resp => resp.json()).then(ChartData => {
+  fetchChartData(symbol).then(ChartData => {
 
   const data = []
   const sym  = ChartData["chart"]["result"][0]["meta"]["symbol"]

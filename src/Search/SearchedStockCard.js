@@ -5,6 +5,8 @@ import {
   InfoDiv,
 } from "../styles/SearchedStockCardstyles";
 import ModalAddStock from "./ModalAddStock";
+import { AddPortfolioButton } from "../styles/CreateModalButtonStyles";
+import { Link } from "@material-ui/core";
 
 export default function SearchedStockCard(props) {
   const { name, symbol, type, marketOpen, marketClose, region } = props;
@@ -35,6 +37,14 @@ export default function SearchedStockCard(props) {
       </strong>
       <InfoDiv>{region}</InfoDiv>
       <ModalAddStock name={name} symbol={symbol} />
+      <Link target="_blank" style={{ textDecoration: "none" }} href={`/News/${symbol}`}>
+        <AddPortfolioButton style={{ maxWidth: 220 }}>News</AddPortfolioButton>
+      </Link>
+      <Link target="_blank"  href={`/chart/${symbol}/nd`}>
+        <AddPortfolioButton style={{ maxWidth: 120 }}>Chart</AddPortfolioButton>
+      </Link>
     </SearchStockCardStyled>
   );
 }
+
+///chart/AAPL/270
