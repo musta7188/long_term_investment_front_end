@@ -60,7 +60,7 @@ function StockCard({
         <strong> Current:</strong>
       </MyPriceSign>
       <MyPriceValue>${currentPrice ? currentPrice : "00"}</MyPriceValue>
-      <Link href={`/infoBuy/${stock.symbol}`}>
+      <Link to={`/infoBuy/${stock.symbol}`}>
         {" "}
         <BuyInfoButton>
           <strong>Buy info</strong>
