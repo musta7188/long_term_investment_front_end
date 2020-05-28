@@ -26,7 +26,6 @@
     "node": "v13.12.0"
   },
   "scripts": {
-    // "start": "react-scripts start",
     "start": "babel-node --presets env, stage-2 server/",
     "build": "react-scripts build",
     "test": "react-scripts test",
