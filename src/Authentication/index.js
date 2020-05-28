@@ -7,7 +7,7 @@ import { Route } from "react-router-dom";
 export default function index() {
   return (
     <div>
-      <Route path={"/Sign-in"} render={(props) => <SignIn {...props} />} />
+      <Route path={"/"} render={(props) => <SignIn {...props} />} />
       <Route path={"/Sign-Up"} render={(props) => <SignUp {...props} />} />
     </div>
   );
