@@ -1,7 +1,7 @@
 import React from "react";
 
-const BASE_URL = "http://localhost:3001/";
-const RECOMMENDED_STOCK = `${BASE_URL}/recommended_stocks`;
+const BASE_URL = "https://backendlongterminvestment.herokuapp.com/";
+const RECOMMENDED_STOCK = `${BASE_URL}recommended_stocks`;
 const signInURL = `${BASE_URL}sign-in`;
 const validateURL = `${BASE_URL}validate`;
 const portfoliosURL = `${BASE_URL}user-portfolios`;
