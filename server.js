@@ -1,9 +1,3 @@
-
-import path from 'path'
-import express from 'express'
-import serveStatic from 'serve-static'
-
-
 var express = require('express');
 var app = express();
 app.use(express.static(__dirname + '/'));
@@ -13,6 +7,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join('build', 'index.html'));
-    res.sendFile(path.resolve(__dirname, '../Portfolio', 'index.html'));
+    res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
   });
 }
