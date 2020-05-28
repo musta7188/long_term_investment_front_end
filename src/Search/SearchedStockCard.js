@@ -37,12 +37,12 @@ export default function SearchedStockCard(props) {
       </strong>
       <InfoDiv>{region}</InfoDiv>
       <ModalAddStock name={name} symbol={symbol} />
-      <Link target="_blank" style={{ textDecoration: "none" }} to={`/News/${symbol}`}>
+      <a target="_blank" style={{ textDecoration: "none" }} href={`/News/${symbol}`}>
         <AddPortfolioButton style={{ maxWidth: 220 }}>News</AddPortfolioButton>
-      </Link>
-      <Link target="_blank"  to={`/chart/${symbol}/nd`}>
+      </a>
+      <a target="_blank"  href={`/chart/${symbol}/nd`}>
         <AddPortfolioButton style={{ maxWidth: 120 }}>Chart</AddPortfolioButton>
-      </Link>
+      </a>
     </SearchStockCardStyled>
   );
 }

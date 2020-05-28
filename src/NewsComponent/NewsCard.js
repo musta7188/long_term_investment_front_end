@@ -5,7 +5,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-
+import { Link } from "react-router-dom";
 import ModalOpenSummary from "./ModalOpenSummary";
 import { useStyles, convertDate } from "../styles/NewsCardStyles";
 
