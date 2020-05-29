@@ -7,12 +7,13 @@ import {
 } from "../styles/StylesNavBar";
 import { connect } from "react-redux";
 
-function NavBar({ setUser, props }) {
+function NavBar({ setUser, props,  setPortfolios }) {
   const [currentSelected, setCurrentSelected] = useState("");
 
 
   const handleLogOut = () => {
     setUser(null);
+    setPortfolios(null)
     localStorage.removeItem("token");
   };
 
@@ -40,6 +41,7 @@ function NavBar({ setUser, props }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (user) => dispatch({ type: "SET_USER", payload: { user } }),
+    setPortfolios: portfolio => dispatch({type: "SET_PORTFOLIOS", payload: {portfolio}})
   };
 };
 
