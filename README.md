@@ -1,4 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Smart Long Term Investment APP
+
+This project was build using Ruby as back-end API and React for the front end. 
+The App shows a recommendation section available upon login for all the user where the admin can add investment recommendation and show the average return on investment since the open position was placed.
+Each user can create and personalize a Smart portfolio where he/she add stock to observe the performance of the stock they bought by including the buying price and the unit. The App also offers a search section and a News section where the user can find and follow the news about the favourite stock.
+
+
+Getting Started 
+
+Clone the Repostory and run npm install && npm start. Be sure to have the back-end running first.
+I suggest to get your own API for Yahoo finance and  Alpha Vangae API find the how here https://www.alphavantage.co/, https://rapidapi.com/apidojo/api/yahoo-finance1.
+This will make sure the API does not run out of request if you get your own API key and change the one in the APIs Component.
+
+You can test the website here: https://www.smartlongterminvestment.com/
+
+Video Demo: https://studio.youtube.com/video/vQM_KEkKrpE/edit
+
+
 
 ## Available Scripts
 
@@ -37,32 +55,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
