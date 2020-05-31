@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 export const Bar = styled.div`
   display: grid;
   margin-bottom: 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   background-color: black;
   color: white;
-  text-align: center;
+
   grid-gap:10px;
  
 `;
@@ -18,14 +18,23 @@ export const Logo = styled.div`
   font-size: 1.5em;
   font-family: 'Anton', sans-serif;
   color: white;
-  margin-right:20px;
-
-  margin-top: 20px;
+  margin: 20px;
+  
 `;
+
+export  const ButtonStyle = {
+  color: "white",
+  background: "black",
+  fontSize: 20
+};
+
+
+
 
 export const ControlButtonElem = styled.div`
   padding-top: 25px;
- color: white;
+  color: white;
+
   text-shadow: 0px 0px 60px #03ff03;
   &:hover {
     color: green; 
@@ -33,6 +42,7 @@ export const ControlButtonElem = styled.div`
   }
   margin-top:20px;
   margin-bottom: 20px;
+  color: ${props => props.inputColor || "black"};
 `;
 
 export const ActiveButton = styled(ControlButtonElem)`
@@ -40,7 +50,7 @@ color: green;
 font-size: 20px;
 `
 
-export function Button( {value, currentSelected, setCurrentSelected} ) {
+export function MenuButton( {value, currentSelected, setCurrentSelected, inputColor, handleClose} ) {
   return currentSelected === value ? (
     <Link style={{ textDecoration: "none" }} to={`/${value}`}>
       {" "}
@@ -55,7 +65,7 @@ export function Button( {value, currentSelected, setCurrentSelected} ) {
       onClick={() => setCurrentSelected(value)}
     >
       {" "}
-      <ControlButtonElem>{value}</ControlButtonElem>
+      <ControlButtonElem onClick={handleClose} inputColor={inputColor} >{value}</ControlButtonElem>
     </Link>
   ) : (
     <Link
@@ -64,7 +74,8 @@ export function Button( {value, currentSelected, setCurrentSelected} ) {
       onClick={() => setCurrentSelected(value)}
     >
       {" "}
-      <ControlButtonElem>{value}</ControlButtonElem>
+      <ControlButtonElem   onClick={handleClose} inputColor={inputColor} >{value}</ControlButtonElem>
     </Link>
   );
 }
+

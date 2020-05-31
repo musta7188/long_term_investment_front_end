@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {
   Bar,
-  Logo, Button
+  Logo
 } from "../styles/StylesNavBar";
 import { connect } from "react-redux";
-
+import HamburgerMenu from './HamburgerMenu'
 function NavBar({ setUser, props,  setPortfolios }) {
   const [currentSelected, setCurrentSelected] = useState("");
 
@@ -28,11 +28,8 @@ function NavBar({ setUser, props,  setPortfolios }) {
       </div>
 
       <Bar>
-        <Logo>Long Term Investment</Logo>
-        <Button value={"Recommendation"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
-        <Button value={"Portfolio"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
-        <Button value={"Search"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
-        <Button value={"News"} currentSelected={currentSelected} setCurrentSelected={setCurrentSelected} />
+        <Logo> Smart Long Term Investment</Logo>
+        <HamburgerMenu/>
       </Bar>
     </>
   );
