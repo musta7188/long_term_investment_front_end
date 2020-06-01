@@ -32,15 +32,16 @@ function SignIn(props) {
 
     signInUser(body)
       .then((data) => {
+        debugger
         if (data.user) {
           setUser(data.user);
           localStorage.token = data.token;
           props.history.push("/Recommendation");
+        
         } else {
-          alert("error");
+          alert(data.message)
         }
-      })
-      .catch((error) => console.log(error));
+      }).catch((error) => alert(error));
   };
 
   return (
