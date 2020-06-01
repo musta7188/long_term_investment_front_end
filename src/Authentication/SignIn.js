@@ -32,7 +32,7 @@ function SignIn(props) {
 
     signInUser(body)
       .then((data) => {
-        debugger
+ 
         if (data.user) {
           setUser(data.user);
           localStorage.token = data.token;
