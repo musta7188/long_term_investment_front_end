@@ -36,13 +36,17 @@ function SignUp(props) {
 
     }
     signUpUser(body).then(data => {
-
+      debugger
+      if(data.erros){
+        alert(data.erros[0])
+      } else {
       setUser(data.user);
 
       localStorage.token = data.token;
       props.history.push('/Recommendation')
+      }
     })
-    .catch(error => console.log(error))
+
    
   };
 
