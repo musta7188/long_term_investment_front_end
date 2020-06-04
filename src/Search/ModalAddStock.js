@@ -23,7 +23,7 @@ export default function ModalAddStock({ symbol, name }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <AddStockForm name={name} symbol={symbol} />
+      <AddStockForm  setOpen={setOpen} name={name} symbol={symbol} />
     </div>
   );
 

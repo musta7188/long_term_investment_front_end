@@ -7,12 +7,13 @@ import { connect } from "react-redux";
 
 function CreatePortfolioForm(props) {
   const { addPortfolio } = props;
+  const {setOpen} = props
 
   const [portfolioName, setPortfolioName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setOpen(false)
     const body = {
       name: portfolioName,
     };

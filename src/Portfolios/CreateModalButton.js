@@ -20,7 +20,7 @@ export default function CreateModalButton() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <CreatePortfolioForm />
+      <CreatePortfolioForm setOpen={setOpen} />
     </div>
   );
 

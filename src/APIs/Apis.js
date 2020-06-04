@@ -70,6 +70,7 @@ export const createNewStock = (body) => {
 };
 
 export const getPortfolios = (token) => {
+  debugger
   return get(portfoliosURL, token).then((resp) => resp.json());
 };
 

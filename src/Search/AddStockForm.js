@@ -8,14 +8,14 @@ import NumberFormat from "react-number-format";
 import { createNewStock } from "../APIs/Apis";
 import { GridInputFields, InputFieldsDiv } from "../styles/AddStockFormStyle";
 
-function AddStockForm({ symbol, userPortfolios, name }) {
+function AddStockForm({ symbol, userPortfolios, name,  setOpen }) {
   const [portfolio, setPortfolio] = useState("");
   const [entryPoint, setEntryPoint] = useState(0);
   const [units, setUnits] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setOpen(false)
     const body = {
       symbol: symbol,
       open: entryPoint,
