@@ -15,13 +15,14 @@ function NavBar({ setUser, props,  setPortfolios }) {
     setUser(null);
     setPortfolios(null)
     localStorage.removeItem("token");
+
   };
 
   return (
     <>
       <div>
         {" "}
-        <Link style={{ color: "white", textDecoration: "none" }} to="/sign-in">
+        <Link style={{ color: "white", textDecoration: "none" }} to="/">
           Log Out <br></br>
           <ExitToAppIcon  onClick={() => handleLogOut()} />
         </Link>{" "}
