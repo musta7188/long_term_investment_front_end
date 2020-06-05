@@ -129,7 +129,7 @@ function SignUp(props) {
             </Button>
             <Grid container>
               <Grid item>
-                <Link to="sign-in" variant="body2">
+                <Link to="/" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

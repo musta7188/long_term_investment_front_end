@@ -7,8 +7,8 @@ import { Route } from "react-router-dom";
 export default function index() {
   return (
     <div>
-      <Route path={"/"} render={(props) => <SignIn {...props} />} />
-      <Route path={"/Sign-Up"} render={(props) => <SignUp {...props} />} />
+      <Route exact path={"/"} render={(props) => <SignIn {...props} />} />
+      <Route exact path={"/Sign-Up"} render={(props) => <SignUp {...props} />} />
     </div>
   );
 }
