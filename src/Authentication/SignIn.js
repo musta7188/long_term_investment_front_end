@@ -22,6 +22,11 @@ function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
+  ///take the state of the component and submit them to find the user 
+  ///if the user exists it creates a local token given by the back-end, set the user data in redux
+  ////and sending the user to the recommendation page
   const handelSubmit = (e) => {
     e.preventDefault();
 

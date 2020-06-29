@@ -1,6 +1,7 @@
 import React from "react";
 
 const BASE_URL = "https://backendlongterminvestment.herokuapp.com/";
+
 const RECOMMENDED_STOCK = `${BASE_URL}recommended_stocks`;
 const signInURL = `${BASE_URL}sign-in`;
 const validateURL = `${BASE_URL}validate`;
@@ -10,6 +11,7 @@ const allStocksURL = `${BASE_URL}stocks`;
 const signUpURL = `${BASE_URL}users`;
 
 const ANALYSIS_STOCK = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`;
+
 
 const ALPHA_VANTAGE_TOKEN = {
   method: "GET",
@@ -35,6 +37,7 @@ const deleteConfig = {
   },
 };
 
+///sent data to the back end 
 const post = (url, body, token) => {
   const ObjConfiguration = {
     method: "POST",
@@ -48,6 +51,7 @@ const post = (url, body, token) => {
   return fetch(url, ObjConfiguration);
 };
 
+///get data from the back end using token to authorize the access 
 const get = (url, token) => {
   const ObjConfiguration = {
     headers: {

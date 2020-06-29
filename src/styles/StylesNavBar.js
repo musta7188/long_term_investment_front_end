@@ -51,6 +51,10 @@ font-size: 20px;
 `
 
 export function MenuButton( {value, currentSelected, setCurrentSelected, inputColor, handleClose} ) {
+
+  ///current selected is equal to the value of the current button/
+  ////if it does he call the active button style which will turn in green the value 
+
   return currentSelected === value ? (
     <Link style={{ textDecoration: "none" }} to={`/${value}`}>
       {" "}
@@ -58,6 +62,7 @@ export function MenuButton( {value, currentSelected, setCurrentSelected, inputCo
         <strong>{value}</strong>
       </ActiveButton>
     </Link>
+    ////it check also if the value is equal to new bec news need two value to link the page to the button
   ) : value === "News" ? (
     <Link
       to={`/${value}/^FTSE`}
@@ -67,6 +72,7 @@ export function MenuButton( {value, currentSelected, setCurrentSelected, inputCo
       {" "}
       <ControlButtonElem onClick={handleClose} inputColor={inputColor} >{value}</ControlButtonElem>
     </Link>
+    ////if the current value is not equal to the value passed the style will be none and link activate for the right page 
   ) : (
     <Link
       to={`/${value}/`}

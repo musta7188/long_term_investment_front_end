@@ -48,6 +48,8 @@ const ReducerApp = (state = initialState, action) => {
     };
   }
   if (action.type === "ADD_PORTFOLIO") {
+    // if the user portfolio is not null it push a new portfolio 
+    ///if the user does not  have any portfolio it create an array with the first portfolio
     return {
       ...state,
       userPortfolios: state.userPortfolios
@@ -62,6 +64,7 @@ const ReducerApp = (state = initialState, action) => {
     };
   }
   if (action.type === "DELETE_PORTFOLIOS") {
+    ////filter all the portfolio that id is not equal to the deleted one 
     return {
       ...state,
       userPortfolios: state.userPortfolios.filter(

@@ -5,11 +5,13 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { MenuButton, ButtonStyle } from "../styles/StylesNavBar";
 export default function Hamburger() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  ///get passed to the button function which will set the value on click 
   const [currentSelected, setCurrentSelected] = useState("");
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+  ///open and close the menu 
   const handleClose = () => {
     setAnchorEl(null);
   };

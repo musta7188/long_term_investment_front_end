@@ -1,6 +1,10 @@
 import React from "react";
 import {TitleDiv} from '../styles/InfoBuyCardStyles'
 
+
+
+////take the stocked passed and extract the info about this stock 
+////the title are matching the properties of the object in the back end 
 export default function InfoBuyCard({ stock }) {
   debugger;
   const InfoBuy = stock[0]["info_buy"];

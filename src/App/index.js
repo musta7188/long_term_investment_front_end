@@ -17,11 +17,15 @@ function App(props) {
   useEffect(() => {
     checkUserLogin();
 
+    ////get the stock from back end and save it in redux using the saveRecommended stock function
     getRecommendedStock().then((data) => saveRecommendedStock(data));
   }, [currentUser]);
 
+
+  ///check if there is a used logged in or not by validating that the token exists 
   const checkUserLogin = () => {
     if (localStorage.token) {
+      ///validate is function which get info about the current user from back end by authenticating the current token
       validate(localStorage.token).then((data) => {
         setUser(data.user);
         localStorage.token = data.token;
@@ -37,6 +41,7 @@ function App(props) {
       {localStorage.token ? (
         <AppLayout className="App">
           <NavBar />
+          {/* routes to navigate the main pages on the website  */}
           <Route
             path={"/Recommendation"}
             render={(props) => <Recommendation {...props} />}
@@ -47,6 +52,7 @@ function App(props) {
             path={"/Search"}
             render={(props) => <SearchIndex {...props} />}
           />
+
           <Route
             path={"/infoBuy/:symbol"}
             render={(props) => <BuyInfo {...props} />}
@@ -64,6 +70,8 @@ function App(props) {
   );
 }
 
+// send to reducer the recommended stocks and info about the user 
+
 const mapDispatchToProps = (dispatch) => {
   return {
     saveRecommendedStock: (stocks) =>
@@ -72,6 +80,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+////return the info about the current user 
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,

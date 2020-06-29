@@ -11,6 +11,8 @@ function NavBar({ setUser, props,  setPortfolios }) {
   const [currentSelected, setCurrentSelected] = useState("");
 
 
+
+////on click this function set all the info about the user and the portfolios to null and remove the token
   const handleLogOut = () => {
     setUser(null);
     setPortfolios(null)
@@ -30,6 +32,7 @@ function NavBar({ setUser, props,  setPortfolios }) {
 
       <Bar>
         <Logo> Smart Long Term Investment</Logo>
+        {/* render the hamburger menu  */}
         <HamburgerMenu/>
       </Bar>
     </>
