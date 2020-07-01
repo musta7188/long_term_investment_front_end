@@ -14,7 +14,9 @@ export default function NewsCard({ news, symbol }) {
 
   const [dateTime, setDateTime] = useState("");
 
+
   useEffect(() => {
+    ///this functions convert the data and set the data to show to the user in a readable way
     convertDate(news["published_at"], setDateTime);
   }, []);
 
@@ -32,6 +34,7 @@ export default function NewsCard({ news, symbol }) {
       />
       <CardMedia
         className={classes.media}
+        ////of the object news has an image it will use it otherwise he will set a default image 
         image={
           news["main_image"]
             ? news["main_image"]["original_url"]

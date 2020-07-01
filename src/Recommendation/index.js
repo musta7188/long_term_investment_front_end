@@ -4,6 +4,7 @@ import SelectedStock from '../SelectedStock/SelectedStock'
 export default function index() {
   return (
     <div>
+      {/* render the recommended stock cards */}
       <StockPage/>
       <SelectedStock/>
     </div>

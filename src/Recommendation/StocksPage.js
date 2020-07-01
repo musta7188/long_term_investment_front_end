@@ -7,11 +7,13 @@ import { StockGrid } from "../styles/StocksPageStyles";
 function StocksPage({ recommendedStocks }) {
   return (
     <>
+
       <h1 style={{ textAlign: "center", marginBottom: 50, color: "white" }}>
         Our stock Recommendation for 2020
       </h1>
       <StockGrid>
-        {recommendedStocks.slice(0, 5).map((stock) => (
+        {/* map in to the stock and passed the to the component card to be displayed  */}
+        {recommendedStocks.map((stock) => (
           <SelectableCard>
             <StockCard stock={stock} />
           </SelectableCard>
@@ -21,6 +23,7 @@ function StocksPage({ recommendedStocks }) {
   );
 }
 
+////get the recommendation from redux 
 const mapStateToProps = (state) => {
   return {
     recommendedStocks: state.recommendedStocks,
