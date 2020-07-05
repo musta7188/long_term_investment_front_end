@@ -8,6 +8,8 @@ import NumberFormat from "react-number-format";
 import { createNewStock } from "../APIs/Apis";
 import { GridInputFields, InputFieldsDiv } from "../styles/AddStockFormStyle";
 
+////extract the symbol of the stock all the portfolios created by the user the name
+////and the setIOpen functioned passed from the Modal component 
 function AddStockForm({ symbol, userPortfolios, name,  setOpen }) {
   const [portfolio, setPortfolio] = useState("");
   const [entryPoint, setEntryPoint] = useState(0);
@@ -22,7 +24,7 @@ function AddStockForm({ symbol, userPortfolios, name,  setOpen }) {
       units: units,
       portfolio_id: portfolio,
     };
-
+    ///post the new stock to the back-end 
     createNewStock(body).then((data) => console.log(data));
   };
 
@@ -36,6 +38,7 @@ function AddStockForm({ symbol, userPortfolios, name,  setOpen }) {
 
         <InputFieldsDiv>
           <InputLabel>Select a Portfolio</InputLabel>
+          {/* select menu with all the user's portfolios */}
           <Select
             value={portfolio}
             onChange={(e) => setPortfolio(e.target.value)}
