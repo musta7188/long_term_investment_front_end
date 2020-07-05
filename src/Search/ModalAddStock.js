@@ -23,6 +23,7 @@ export default function ModalAddStock({ symbol, name }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
+      {/* return a form and pass the open state setOpen name and symbol of the stock clicked */}
       <AddStockForm  setOpen={setOpen} name={name} symbol={symbol} />
     </div>
   );
@@ -33,6 +34,7 @@ export default function ModalAddStock({ symbol, name }) {
         {" "}
         Add to portfolio
       </AddPortfolioButton>
+      {/* when clicked outside the modal it closed  */}
       <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>

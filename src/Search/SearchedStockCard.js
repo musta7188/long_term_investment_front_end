@@ -6,10 +6,11 @@ import {
 } from "../styles/SearchedStockCardstyles";
 import ModalAddStock from "./ModalAddStock";
 import { AddPortfolioButton } from "../styles/CreateModalButtonStyles";
-import { Link } from "react-router-dom";
+
 
 export default function SearchedStockCard(props) {
   const { name, symbol, type, marketOpen, marketClose, region } = props;
+  ///extract from the props all the passed properties 
   return (
     <SearchStockCardStyled>
       <strong>
@@ -36,7 +37,9 @@ export default function SearchedStockCard(props) {
         <TagDiv>Region:</TagDiv>
       </strong>
       <InfoDiv>{region}</InfoDiv>
+      {/* modal that allow user to add the stock to the portfolios */}
       <ModalAddStock name={name} symbol={symbol} />
+      {/* open in a different page news and chart  */}
       <a target="_blank" style={{ textDecoration: "none" }} href={`/News/${symbol}`}>
         <AddPortfolioButton style={{ maxWidth: 220 }}>News</AddPortfolioButton>
       </a>

@@ -4,6 +4,8 @@ import SearchedStockCard from "./SearchedStockCard";
 import { StockContainer } from "../styles/SearchedStockCardstyles";
 
 function SearchedStockContainer({ stocks }) {
+
+  ////for each stock in creates a component card to display them and pass just the info needed 
   return (
     <StockContainer>
       {stocks &&
@@ -21,6 +23,7 @@ function SearchedStockContainer({ stocks }) {
   );
 }
 
+///redux give the stock fetched form the API 
 const mapStateToProps = (state) => {
   return {
     stocks: state.searchedStocks,
