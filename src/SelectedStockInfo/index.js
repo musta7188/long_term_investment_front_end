@@ -4,6 +4,7 @@ import { InfoDiv, Detail, Value } from "../styles/SelectedStockStyles";
 
 
 export const index = ({ summeryDetails }) => {
+  ////fetch from redux the summery info adn display them in two container 
   
   const {
     previousClose,
