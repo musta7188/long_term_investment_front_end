@@ -26,10 +26,12 @@ function StockCard({
     fetchStockAnalysis();
   }, []);
 
+  ///component mount call this method which fetch the info about the symbol passed to the component 
   const fetchStockAnalysis = () => {
     getPriceData(stock.symbol)
       .then((data) => {
         setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"]);
+        ///set the state of the summary details about the current stock
         setCurrentStockData(data["summaryDetail"]);
       })
       .catch((error) => console.log(error));
@@ -37,6 +39,7 @@ function StockCard({
 
   const submitSelectedStock = (sym) => {
     
+  ////this function is in chartIndex.js and pass the symbol to the component to fetch the data for the selected symbol
     getChartData(sym);
     getSelectedStock(sym);
     getSummeryDetails(currentStockData);
@@ -45,8 +48,11 @@ function StockCard({
   return (
     <StockHeaderGridStyled>
       <StockSymbol>{stock.symbol}</StockSymbol>
+      {/* if the current price is still loading and null will show loading... */}
+      {/*  take a percentage (number) and return red or green if % < 0 */}
 
       {currentPrice ? (
+        // calculate % takes two argument current price and open price and return a percentage return 
         PercentageColor(calculatePercentageReturn(currentPrice, stock.price))
       ) : (
         <p>{"Loading..."}</p>
@@ -60,17 +66,24 @@ function StockCard({
         <strong> Current:</strong>
       </MyPriceSign>
       <MyPriceValue>${currentPrice ? currentPrice : "00"}</MyPriceValue>
+
+
       <Link to={`/infoBuy/${stock.symbol}`}>
         {" "}
         <BuyInfoButton>
           <strong>Buy info</strong>
         </BuyInfoButton>
       </Link>
+
+
+      {/* route to the stock news  */}
       <Link to={`/News/${stock.symbol}`}>
         <NewsButton>
           <strong>News</strong>
         </NewsButton>
       </Link>
+
+
       <NewsButton onClick={(e) => submitSelectedStock(stock.symbol)}>
         <strong>Chart</strong>
       </NewsButton>

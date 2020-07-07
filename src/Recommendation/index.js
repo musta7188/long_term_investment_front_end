@@ -6,6 +6,7 @@ export default function index() {
     <div>
       {/* render the recommended stock cards */}
       <StockPage/>
+      {/* info blue container that render the info about the stock */}
       <SelectedStock/>
     </div>
   )

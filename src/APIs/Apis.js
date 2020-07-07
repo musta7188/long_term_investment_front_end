@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const BASE_URL = "https://backendlongterminvestment.herokuapp.com/";
 
@@ -9,7 +9,7 @@ const portfoliosURL = `${BASE_URL}user-portfolios`;
 const allPortfolioURL = `${BASE_URL}portfolios`;
 const allStocksURL = `${BASE_URL}stocks`;
 const signUpURL = `${BASE_URL}users`;
-
+///URL stock analysis 
 const ANALYSIS_STOCK = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-analysis?symbol=`;
 
 
@@ -37,7 +37,7 @@ const deleteConfig = {
   },
 };
 
-///sent data to the back end 
+///sent data to the back end argument are url body and token 
 const post = (url, body, token) => {
   const ObjConfiguration = {
     method: "POST",

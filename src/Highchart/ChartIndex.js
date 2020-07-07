@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import ReactHighcharts from "react-highcharts";
-import styled from "styled-components";
 import ChartTheme from "./ChartTheme";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import { connect } from "react-redux";
 import { fetchChartData } from "../APIs/Apis";
 import { roundTo } from "../Shared/Functions";
-ReactHighcharts.Highcharts.setOptions(ChartTheme);
+//ReactHighcharts.Highcharts.setOptions(ChartTheme);
 
-function ChartIndex({ getChartDataFunction, selectedStock }) {
+function ChartIndex({ getChartDataFunction }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+
+    ///take a function and send it to the reducer to be used in the stockCard.js to pass the symbol 
     getChartDataFunction(getChartData);
   }, []);
 
@@ -21,6 +22,8 @@ function ChartIndex({ getChartDataFunction, selectedStock }) {
       const data = [];
       const sym = ChartData["chart"]["result"][0]["meta"]["symbol"];
       let date = ChartData["chart"]["result"][0]["timestamp"];
+      ////array of numbers
+      debugger
       let open =
         ChartData["chart"]["result"][0]["indicators"]["quote"][0]["open"];
       let high =
@@ -32,6 +35,7 @@ function ChartIndex({ getChartDataFunction, selectedStock }) {
       let volume =
         ChartData["chart"]["result"][0]["indicators"]["quote"][0]["volume"];
 
+        ////create an array of arrays [1562592600000, 293.65, 293.78, 289.65, 293, 1268700]
       for (let i = 0; i < date.length; i += 1) {
         data.push([
           date[i] * 1000,
@@ -43,6 +47,7 @@ function ChartIndex({ getChartDataFunction, selectedStock }) {
         ]);
       }
 
+      ////body for the chart
       const options = {
         title: {
           text: sym,
@@ -59,6 +64,7 @@ function ChartIndex({ getChartDataFunction, selectedStock }) {
 
   return (
     <div>
+      {/* if no data is passed to the component will render a message other white will render the chart  */}
       {data ? (
         <HighchartsReact
           highcharts={Highcharts}
@@ -72,11 +78,7 @@ function ChartIndex({ getChartDataFunction, selectedStock }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    selectedStock: state.selectedStock,
-  };
-};
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -85,4 +87,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChartIndex);
+export default connect(null, mapDispatchToProps)(ChartIndex);
