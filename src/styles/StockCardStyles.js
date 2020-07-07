@@ -80,7 +80,7 @@ export const PercentageColor = (percentage) => {
 
 export const calculatePercentageReturn = (currentPrice, boughtPrice) => {
 
-
+////parse the string delete any comma bc does not work with commas 
   let price = parseInt(currentPrice.replace(/[ ,]/g,''), 10)
   let minusReturn = price - boughtPrice;
   let divideReturn = minusReturn / boughtPrice;
