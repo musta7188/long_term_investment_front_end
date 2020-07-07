@@ -64,6 +64,7 @@ text-align: center;
 
 export const PercentageColor = (percentage) => {
 
+
   return percentage < 0 ? (
     <StockPercentageRed>
     <strong> {percentage}</strong> 
@@ -78,9 +79,12 @@ export const PercentageColor = (percentage) => {
 };
 
 export const calculatePercentageReturn = (currentPrice, boughtPrice) => {
-  let minusReturn = currentPrice - boughtPrice;
+
+
+  let price = parseInt(currentPrice.replace(/[ ,]/g,''), 10)
+  let minusReturn = price - boughtPrice;
   let divideReturn = minusReturn / boughtPrice;
   let finalResults = divideReturn * 100;
-
+  debugger
   return finalResults.toString().slice(0, 5);
 };

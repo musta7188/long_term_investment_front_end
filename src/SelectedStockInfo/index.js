@@ -4,8 +4,9 @@ import { InfoDiv, Detail, Value } from "../styles/SelectedStockStyles";
 
 
 export const index = ({ summeryDetails }) => {
-  ////fetch from redux the summery info adn display them in two container 
+  ////fetch from redux the summery info passed when clicked the button and display them in two container 
   
+  ///destruction of the info from the object
   const {
     previousClose,
     open,
@@ -27,6 +28,7 @@ export const index = ({ summeryDetails }) => {
     exDividendDate,
   } = summeryDetails;
 
+  ////function that return the value to render 
   const whatTORender = () => {
    
     return previousClose != undefined ? (
@@ -66,7 +68,7 @@ export const index = ({ summeryDetails }) => {
       <Detail></Detail>
     );
   };
-
+////return the function that renders the info
   return whatTORender();
 };
 

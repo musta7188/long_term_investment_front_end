@@ -22,6 +22,7 @@ function StockCard({
   const [currentPrice, setCurrentPrice] = useState(null);
   const [currentStockData, setCurrentStockData] = useState({});
 
+
   useEffect(() => {
     fetchStockAnalysis();
   }, []);
@@ -30,6 +31,7 @@ function StockCard({
   const fetchStockAnalysis = () => {
     getPriceData(stock.symbol)
       .then((data) => {
+ 
         setCurrentPrice(data["price"]["regularMarketPrice"]["fmt"]);
         ///set the state of the summary details about the current stock
         setCurrentStockData(data["summaryDetail"]);
