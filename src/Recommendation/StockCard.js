@@ -41,7 +41,7 @@ function StockCard({
 
   const submitSelectedStock = (sym) => {
     
-  ////this function is in chartIndex.js and pass the symbol to the component to fetch the data for the selected symbol
+  //this function is in chartIndex.js and pass the symbol to the component to fetch the data for the selected symbol
     getChartData(sym);
     getSelectedStock(sym);
     getSummeryDetails(currentStockData);
