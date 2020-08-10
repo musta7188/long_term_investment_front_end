@@ -55,25 +55,32 @@ export function MenuButton({
   ////if it does he call the active button style which will turn in green the value
   ////it always check if the value is news bc news route takes two argument otherwise wont work
 
-  return currentSelected === value ? (
-    value === "News" ? (
-      <Link style={{ textDecoration: "none" }} to={`/${value}/^FTSE`}>
+  if (currentSelected === value) {
+    if (value === "News"){
+    return  <Link style={{ textDecoration: "none" }} to={`/${value}/^FTSE`}>
+      {" "}
+      <ActiveButton>
+        <strong>{value}</strong>
+      </ActiveButton>
+    </Link>
+    }
+    if (value === "Recommendation" ) {
+   return   <Link style={{ textDecoration: "none" }} to={""}>
+    {" "}
+    <ActiveButton>
+      <strong>{value}</strong>
+    </ActiveButton>
+  </Link> 
+    } else {
+   return   <Link style={{ textDecoration: "none" }} to={`/${value}`}>
         {" "}
         <ActiveButton>
           <strong>{value}</strong>
         </ActiveButton>
       </Link>
-    ) : (
-      <Link style={{ textDecoration: "none" }} to={`/${value}`}>
-        {" "}
-        <ActiveButton>
-          <strong>{value}</strong>
-        </ActiveButton>
-      </Link>
-    )
-  ) : ////it check also if the value is equal to new bec news need two value to link the page to the button
-  value === "News" ? (
-    <Link
+    }
+  } if (value === "News"){
+return  <Link
       to={`/${value}/^FTSE`}
       style={{ textDecoration: "none" }}
       onClick={() => setCurrentSelected(value)}
@@ -83,9 +90,16 @@ export function MenuButton({
         {value}
       </ControlButtonElem>
     </Link>
-  ) : (
-    ////if the current value is not equal to the value passed the style will be none and link activate for the right page
-    <Link
+  } if ( value === "Recommendation") {
+ return   <Link style={{ textDecoration: "none" }} to={""}>
+  {" "}
+  <ActiveButton>
+    <strong>{value}</strong>
+  </ActiveButton>
+  </Link> 
+  
+  } else {
+  return  <Link
       to={`/${value}/`}
       style={{ textDecoration: "none" }}
       onClick={() => setCurrentSelected(value)}
@@ -95,5 +109,6 @@ export function MenuButton({
         {value}
       </ControlButtonElem>
     </Link>
-  );
+  }
+  
 }

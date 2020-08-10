@@ -43,7 +43,7 @@ function App(props) {
           <NavBar />
           {/* routes to navigate the main pages on the website  */}
           <Route
-            path={"/Recommendation"}
+            exact path={"/"}
             render={(props) => <Recommendation {...props} />}
           />
           <Route render={(props) => <PortfoliosIndex {...props} />} />
