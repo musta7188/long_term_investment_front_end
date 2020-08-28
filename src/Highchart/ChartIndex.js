@@ -64,7 +64,7 @@ function ChartIndex({ getChartDataFunction }) {
 
   return (
     <div>
-      {/* if no data is passed to the component will render a message other white will render the chart  */}
+      {/* if no data is passed to the component will render a message otherwise will render the chart  */}
       {data ? (
         <HighchartsReact
           highcharts={Highcharts}
