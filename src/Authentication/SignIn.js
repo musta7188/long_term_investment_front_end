@@ -41,7 +41,7 @@ function SignIn(props) {
         if (data.user) {
           setUser(data.user);
           localStorage.token = data.token;
-          props.history.push("/Recommendation");
+          props.history.push("/");
         
         } else {
           alert(data.message)

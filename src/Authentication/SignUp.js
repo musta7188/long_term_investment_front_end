@@ -43,7 +43,7 @@ function SignUp(props) {
       setUser(data.user);
 
       localStorage.token = data.token;
-      props.history.push('/Recommendation')
+      props.history.push('/')
       }
     })
 
