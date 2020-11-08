@@ -85,7 +85,7 @@ function StockCard({
         </NewsButton>
       </Link>
 
-
+          {/* take a symbol and dispatch that symbol to the state redux which get passed to another component  */}
       <NewsButton onClick={(e) => submitSelectedStock(stock.symbol)}>
         <strong>Chart</strong>
       </NewsButton>

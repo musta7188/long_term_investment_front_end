@@ -24,6 +24,7 @@ const getChartData = () =>{
   fetchChartData(symbol).then(ChartData => {
 
   const data = []
+  debugger
   const sym  = ChartData["chart"]["result"][0]["meta"]["symbol"]
   let date =  ChartData["chart"]["result"][0]["timestamp"]
  let open =  ChartData["chart"]["result"][0]["indicators"]["quote"][0]["open"]
